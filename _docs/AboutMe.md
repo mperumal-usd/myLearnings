@@ -1,7 +1,7 @@
 ---
-title: Abot Me
+title: Mani
 category: About Me
 order: 1
 ---
 
-All architecture details go here
+Exploring Machine Learning and Artificai Intelligence
