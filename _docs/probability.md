@@ -1,4 +1,3 @@
-
 ---
 category: probability
 order: 1
