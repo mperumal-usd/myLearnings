@@ -1,5 +1,5 @@
 ---
-category: probability
+category: Probability
 order: 1
-title: basics
+title: basics of Probability
 ---
