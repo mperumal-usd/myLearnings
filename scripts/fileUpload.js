@@ -1,5 +1,5 @@
 document.getElementById('fileInput').addEventListener('change', function(event) {
-    const file = event.target.files[0]; // Get the first selected file
+    const file = event.target.files[0];
     if (!file) {
         return;
     }
@@ -8,7 +8,12 @@ document.getElementById('fileInput').addEventListener('change', function(event) 
 
     reader.onload = function(e) {
         const content = e.target.result;
-        processCSV(content);
+        const rows = content.split('\n').map(row => row.split(','));
+        if (rows.length > 0) {
+            const headers = rows[0];
+            displayColumnSelection(headers);
+            document.getElementById('plotButton').disabled = false;
+        }
     };
 
     reader.onerror = function() {
@@ -18,25 +23,61 @@ document.getElementById('fileInput').addEventListener('change', function(event) 
     reader.readAsText(file);
 });
 
-function processCSV(data) {
-    const rows = data.split('\n').map(row => row.split(','));
-    
-    // Assuming the first row contains column names
-    const headers = rows[0];
-    const x = [];
-    const y = [];
+function displayColumnSelection(headers) {
+    const columnSelectionDiv = document.getElementById('columnSelection');
+    columnSelectionDiv.innerHTML = ''; // Clear previous content
 
-    // Assuming the data starts from the second row
-    for (let i = 1; i < rows.length; i++) {
-        const row = rows[i];
-        if (row.length === headers.length) { // Check if the row has the correct number of columns
-            x.push(row[0]); // Assume the first column is for x-axis
-            y.push(parseFloat(row[1])); // Assume the second column is for y-axis
+    headers.forEach((header, index) => {
+        const label = document.createElement('label');
+        const checkbox = document.createElement('input');
+        checkbox.type = 'checkbox';
+        checkbox.value = index;
+        checkbox.checked = index < 2; // Pre-select the first two columns
+        label.appendChild(checkbox);
+        label.appendChild(document.createTextNode(header));
+        columnSelectionDiv.appendChild(label);
+        columnSelectionDiv.appendChild(document.createElement('br'));
+    });
+}
+
+document.getElementById('plotButton').addEventListener('click', function() {
+    const checkboxes = document.querySelectorAll('#columnSelection input[type="checkbox"]');
+    const selectedIndices = [];
+    
+    checkboxes.forEach(checkbox => {
+        if (checkbox.checked) {
+            selectedIndices.push(parseInt(checkbox.value));
         }
+    });
+
+    if (selectedIndices.length < 2) {
+        alert("Please select at least two columns to plot.");
+        return;
     }
 
-    plotData(x, y);
-}
+    const fileInput = document.getElementById('fileInput');
+    const file = fileInput.files[0];
+    const reader = new FileReader();
+
+    reader.onload = function(e) {
+        const content = e.target.result;
+        const rows = content.split('\n').map(row => row.split(','));
+        const x = [];
+        const y = [];
+
+        for (let i = 1; i < rows.length; i++) {
+            const row = rows[i];
+            if (row.length === rows[0].length) {
+                x.push(row[selectedIndices[0]]);
+                y.push(parseFloat(row[selectedIndices[1]]));
+            }
+        }
+
+        plotData(x, y);
+    };
+
+    reader.readAsText(file);
+});
 
 function plotData(x, y) {
     const trace = {
