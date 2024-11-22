@@ -5,11 +5,11 @@ title: basics of Probability
 ---
 
 <h1>OCR with Tesseract.js</h1>
-    <input type="file" id="fileInput" accept="image/*">
-    <div id="output"></div>
+<input type="file" id="ocrInput" accept="image/*">
+<div id="output"></div>
 
-    <script>
-        document.getElementById('fileInput').addEventListener('change', function(event) {
+ <script>
+        document.getElementById('ocrInput').addEventListener('change', function(event) {
             const file = event.target.files[0];
             if (file) {
                 Tesseract.recognize(
@@ -26,5 +26,5 @@ title: basics of Probability
                 });
             }
         });
-    </script>
-  <script src="https://cdn.jsdelivr.net/npm/tesseract.js@2"></script>
+</script>
+<script src="https://cdn.jsdelivr.net/npm/tesseract.js@2"></script>
