@@ -16,5 +16,7 @@ Exploring Machine Learning and Artificai Intelligence
 </pre>
 
 <script>
-  Prism.highlightAll();
+  document.addEventListener('DOMContentLoaded', (event) => {
+    Prism.highlightAll();
+  });
 </script>
