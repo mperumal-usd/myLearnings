@@ -18,8 +18,10 @@ Enter an array of numbers (comma-separated):
 
 <h1>Upload CSV and Plot</h1>
 <input type="file" id="fileInput" accept=".csv" />
+<div id="columnSelection"></div>
+<button id="plotButton" disabled>Plot</button>
 <div id="plot"></div>
-<script src="{{ site.baseurl }}/scripts/fileUpload.js"></script>
+
     
 <!-- Include Lodash from CDN -->
 <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.21/lodash.min.js"></script>
