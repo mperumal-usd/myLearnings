@@ -14,3 +14,7 @@ Exploring Machine Learning and Artificai Intelligence
     greet('World'); 
   ```
 </pre>
+
+<script>
+  Prism.highlightAll();
+</script>
