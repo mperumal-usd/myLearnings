@@ -18,8 +18,13 @@ Exploring Machine Learning and Artificai Intelligence
  "a" : "b"
 }
 ```
+```python
+print("hello")
+```
+
 <script>
   document.addEventListener('DOMContentLoaded', (event) => {
     Prism.highlightAll();
   });
 </script>
+
