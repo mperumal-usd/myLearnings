@@ -1,5 +1,7 @@
 ---
-
+category: Machine Learning
+order: 4
+title: OCR With Tamil
 ---
 <h1>OCR with Tesseract.js</h1>
 <input type="file" id="ocrInput" accept="image/*">
