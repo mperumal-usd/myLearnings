@@ -1,5 +1,5 @@
 ---
-category: Machine Learning
+category: Tools
 order: 4
 title: OCR With Tamil
 ---
