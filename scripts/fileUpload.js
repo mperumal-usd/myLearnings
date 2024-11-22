@@ -14,6 +14,7 @@ document.getElementById('fileInput').addEventListener('change', function(event) 
             displayColumnSelection(headers);
             document.getElementById('plotButton').disabled = false;
             document.getElementById('statsButton').disabled = false;
+            document.getElementById('histogramButton').disabled = false;
         }
     };
 
@@ -41,63 +42,9 @@ function displayColumnSelection(headers) {
     });
 }
 
-document.getElementById('plotButton').addEventListener('click', function() {
-    const selectedIndices = getSelectedIndices();
-    if (selectedIndices.length < 2) {
-        alert("Please select at least two columns to plot.");
-        return;
-    }
-
-    const file = document.getElementById('fileInput').files[0];
-    const reader = new FileReader();
-
-    reader.onload = function(e) {
-        const content = e.target.result;
-        const rows = content.split('\n').map(row => row.split(','));
-        const x = [];
-        const y = [];
-
-        for (let i = 1; i < rows.length; i++) {
-            const row = rows[i];
-            if (row.length === rows[0].length) {
-                x.push(row[selectedIndices[0]]);
-                y.push(parseFloat(row[selectedIndices[1]]));
-            }
-        }
-
-        plotData(x, y);
-    };
-
-    reader.readAsText(file);
-});
-
-document.getElementById('statsButton').addEventListener('click', function() {
-    const selectedIndices = getSelectedIndices();
-    if (selectedIndices.length < 1) {
-        alert("Please select at least one column for statistics.");
-        return;
-    }
-
-    const file = document.getElementById('fileInput').files[0];
-    const reader = new FileReader();
-
-    reader.onload = function(e) {
-        const content = e.target.result;
-        const rows = content.split('\n').map(row => row.split(','));
-        const data = [];
-
-        for (let i = 1; i < rows.length; i++) {
-            const row = rows[i];
-            if (row.length === rows[0].length) {
-                data.push(parseFloat(row[selectedIndices[0]]));
-            }
-        }
-
-        showStatistics(data);
-    };
-
-    reader.readAsText(file);
-});
+document.getElementById('plotButton').addEventListener('click', plotAction);
+document.getElementById('statsButton').addEventListener('click', statsAction);
+document.getElementById('histogramButton').addEventListener('click', histogramAction);
 
 function getSelectedIndices() {
     const checkboxes = document.querySelectorAll('#columnSelection input[type="checkbox"]');
@@ -112,20 +59,4 @@ function getSelectedIndices() {
     return selectedIndices;
 }
 
-function plotData(x, y) {
-    const trace = {
-        x: x,
-        y: y,
-        type: 'scatter',
-        mode: 'lines+markers',
-        marker: { color: 'red' }
-    };
 
-    const layout = {
-        title: 'CSV Data Plot',
-        xaxis: { title: 'X Axis' },
-        yaxis: { title: 'Y Axis' }
-    };
-
-    Plotly.newPlot('plot', [trace], layout);
-}
