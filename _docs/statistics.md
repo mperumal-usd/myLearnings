@@ -15,8 +15,15 @@ Enter an array of numbers (comma-separated):
 <p>Mean: <span id="meanResult"></span></p>
 <p>Median: <span id="medianResult"></span></p>
 
+
+<h1>Upload CSV and Plot</h1>
+    <input type="file" id="fileInput" accept=".csv" />
+    <div id="plot"></div>
+    <script src="script.js"></script>
+    
 <!-- Include Lodash from CDN -->
 <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.21/lodash.min.js"></script>
+<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
 
 <script>
   function calculateStats() {
