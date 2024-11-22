@@ -6,4 +6,4 @@ order: 1
 ---
 
  <canvas id="drawingCanvas" width="800" height="600"></canvas>
-  <script src="script.js"></script>
+<script src="{{ site.baseurl }}/scripts/freeDraw.js">
