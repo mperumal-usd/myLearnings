@@ -22,6 +22,7 @@ Enter an array of numbers (comma-separated):
 <button id="plotButton" disabled>Plot</button>
 <div id="plot"></div>
 
+<script src="{{ site.baseurl }}/scripts/fileUpload.js"></script>
     
 <!-- Include Lodash from CDN -->
 <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.21/lodash.min.js"></script>
