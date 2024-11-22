@@ -20,13 +20,19 @@ Enter an array of numbers (comma-separated):
 <input type="file" id="fileInput" accept=".csv" />
 <div id="columnSelection"></div>
 <button id="plotButton" disabled>Plot</button>
+<button id="statsButton" disabled>Show Summary Statistics</button>
 <div id="plot"></div>
+<div id="statistics"></div>
 
 <script src="{{ site.baseurl }}/scripts/fileUpload.js"></script>
+<script src="{{ site.baseurl }}/scripts/statistics.js"></script>
+
     
 <!-- Include Lodash from CDN -->
 <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.21/lodash.min.js"></script>
 <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jstat@latest/dist/jstat.min.js"></script>
+
 
 <script>
   function calculateStats() {
