@@ -39,7 +39,11 @@ function statsAction() {
 
   reader.readAsText(file);
 }
-
+/**
+ * The plotAction function reads the selected columns from the uploaded CSV file and plots a scatter plot of the data.
+ * 
+ * @returns  
+ */
 function plotAction() {
   const selectedIndices = getSelectedIndices();
   if (selectedIndices.length < 2) {
@@ -75,6 +79,7 @@ function plotAction() {
 * The histogramAction function reads the selected columns from the uploaded CSV file and plots a histogram of the data.
 * The plotHistogram function creates a histogram trace using Plotly and displays it in the plot div.
 * The plotData function creates a scatter plot trace using Plot
+*/
 
  function histogramAction() {
   const selectedIndices = getSelectedIndices();
@@ -104,6 +109,12 @@ function plotAction() {
   reader.readAsText(file);
 }
 
+/**
+ * The plotHistogram function creates a histogram trace using Plotly and displays it in the plot div.
+ * 
+ * @param {Array} data 
+ */
+
 function plotHistogram(data) {
   const trace = {
       x: data,
@@ -120,6 +131,12 @@ function plotHistogram(data) {
   Plotly.newPlot('plot', [trace], layout);
 }
 
+/**
+ * The plotData function creates a scatter plot trace using Plotly and displays it in the plot div.
+ * 
+ * @param {Array} x 
+ * @param {Array} y 
+ */
 function plotData(x, y) {
   const trace = {
       x: x,
