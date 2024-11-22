@@ -13,7 +13,11 @@ Exploring Machine Learning and Artificai Intelligence
     } 
     greet('World'); 
   ```
-
+```json
+{
+ "a" : "b"
+}
+```
 <script>
   document.addEventListener('DOMContentLoaded', (event) => {
     Prism.highlightAll();
