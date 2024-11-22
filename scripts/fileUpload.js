@@ -13,6 +13,7 @@ document.getElementById('fileInput').addEventListener('change', function(event) 
             const headers = rows[0];
             displayColumnSelection(headers);
             document.getElementById('plotButton').disabled = false;
+            document.getElementById('statsButton').disabled = false;
         }
     };
 
@@ -41,22 +42,13 @@ function displayColumnSelection(headers) {
 }
 
 document.getElementById('plotButton').addEventListener('click', function() {
-    const checkboxes = document.querySelectorAll('#columnSelection input[type="checkbox"]');
-    const selectedIndices = [];
-    
-    checkboxes.forEach(checkbox => {
-        if (checkbox.checked) {
-            selectedIndices.push(parseInt(checkbox.value));
-        }
-    });
-
+    const selectedIndices = getSelectedIndices();
     if (selectedIndices.length < 2) {
         alert("Please select at least two columns to plot.");
         return;
     }
 
-    const fileInput = document.getElementById('fileInput');
-    const file = fileInput.files[0];
+    const file = document.getElementById('fileInput').files[0];
     const reader = new FileReader();
 
     reader.onload = function(e) {
@@ -78,6 +70,47 @@ document.getElementById('plotButton').addEventListener('click', function() {
 
     reader.readAsText(file);
 });
+
+document.getElementById('statsButton').addEventListener('click', function() {
+    const selectedIndices = getSelectedIndices();
+    if (selectedIndices.length < 1) {
+        alert("Please select at least one column for statistics.");
+        return;
+    }
+
+    const file = document.getElementById('fileInput').files[0];
+    const reader = new FileReader();
+
+    reader.onload = function(e) {
+        const content = e.target.result;
+        const rows = content.split('\n').map(row => row.split(','));
+        const data = [];
+
+        for (let i = 1; i < rows.length; i++) {
+            const row = rows[i];
+            if (row.length === rows[0].length) {
+                data.push(parseFloat(row[selectedIndices[0]]));
+            }
+        }
+
+        showStatistics(data);
+    };
+
+    reader.readAsText(file);
+});
+
+function getSelectedIndices() {
+    const checkboxes = document.querySelectorAll('#columnSelection input[type="checkbox"]');
+    const selectedIndices = [];
+    
+    checkboxes.forEach(checkbox => {
+        if (checkbox.checked) {
+            selectedIndices.push(parseInt(checkbox.value));
+        }
+    });
+
+    return selectedIndices;
+}
 
 function plotData(x, y) {
     const trace = {
