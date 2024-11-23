@@ -23,16 +23,11 @@ title:  Exploratary Data Analysis
 <script src="https://cdn.jsdelivr.net/npm/danfojs@0.4.0/lib/bundle.min.js"></script>
 
 <h1>Upload CSV and Display DataFrame</h1>
-    <!-- File input for CSV upload -->
 <input type="file" id="csvFileInput" accept=".csv" />
-
-    <!-- Button to toggle table visibility -->
 <button class="collapsible">Show/Hide Table</button>
 
-    <!-- Container for the table -->
     
 <div id="dataframe-table"></div>
-
 <script>
         document.getElementById('csvFileInput').addEventListener('change', handleFileSelect, false);
         document.querySelector('.collapsible').addEventListener('click', toggleTable);
