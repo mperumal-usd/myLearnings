@@ -1,5 +1,9 @@
 ---
+category: Machine Learning
+order: 1
+title:  Exploratary Data Analysis
 ---
+
 <style>
         /* Basic styling for the collapsible table */
         #dataframe-table {
