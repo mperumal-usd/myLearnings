@@ -17,7 +17,15 @@ title: Sentence Embeddings
             font-family: Arial, sans-serif;
             margin: 20px;
         }
-        input, button {
+       button {
+            margin: 5px 0;
+            padding: 10px;
+            width: 100%;
+            box-sizing: border-box;
+           background-color:lightskyblue
+        }
+       #sentence1,#sentence2 
+         {
             margin: 5px 0;
             padding: 10px;
             width: 100%;
