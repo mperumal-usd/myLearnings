@@ -16,7 +16,9 @@ title: Text to Speech
             // Check if the browser supports speech synthesis
             if ('speechSynthesis' in window) {
                 // Create a new SpeechSynthesisUtterance object
-                const utterance = new SpeechSynthesisUtterance(text);
+                const utterance = new SpeechSynthesisUtterance("வணக்கம், எப்படி இருக்கிறீர்கள்?");
+
+                // const utterance = new SpeechSynthesisUtterance(text);
 
                 // Set some optional properties, like voice, pitch, and rate
                 // utterance.voice = speechSynthesis.getVoices()[0]; // Choose a voice
@@ -24,7 +26,8 @@ title: Text to Speech
                 // utterance.rate = 1; // Default is 1
 
                 // Speak the text
-                window.speechSynthesis.speak(utterance);
+                     utterance.lang = 'ta-IN';
+                 window.speechSynthesis.speak(utterance);
             } else {
                 alert('Sorry, your browser does not support text-to-speech.');
             }
