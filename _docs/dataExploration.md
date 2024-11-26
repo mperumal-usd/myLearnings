@@ -20,7 +20,7 @@ title:  Exploratary Data Analysis
             font-size: 16px;
         }
 </style>
-<script src="https://cdn.jsdelivr.net/npm/danfojs@0.4.0/lib/bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/danfojs@1.1.2/lib/bundle.min.js"></script>
 
 <h1>Upload CSV and Display DataFrame</h1>
 <input type="file" id="csvFileInput" accept=".csv" />
