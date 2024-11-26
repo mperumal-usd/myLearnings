@@ -105,7 +105,7 @@ title: Text to Speech
 <p id="status"></p>
 <p id="result"></p>
 
-<script src="{{ site.baseurl }}/scripts/pronounctiation.js"></script>
+<script src="{{ site.baseurl }}/scripts/pronunctiation.js"></script>
 
 #### References
 * https://github.com/eeejay/espeak
