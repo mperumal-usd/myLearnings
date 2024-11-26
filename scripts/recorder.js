@@ -2,9 +2,9 @@ let mediaRecorder;
 let recordedChunks = [];
 
 // Get the buttons and link elements
-const startButton = document.getElementById('startButton');
-const stopButton = document.getElementById('stopButton');
-const downloadLink = document.getElementById('downloadLink');
+const startButton = document.getElementById('speechStartButton');
+const stopButton = document.getElementById('speechStopButton');
+const downloadLink = document.getElementById('speechDownloadLink');
 
 // Start recording
 startButton.addEventListener('click', async () => {
