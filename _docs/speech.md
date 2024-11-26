@@ -91,6 +91,15 @@ title: Text to Speech
         }
 </script>
 
+#### Record Speech and Download
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.7.1/jszip.min.js"></script>
+
+<button id="speechStartButton">Start Recording</button>
+<button id="speechStopButton" disabled>Stop Recording</button>
+<a id="speechDownloadLink" style="display:none;">Download Audio</a>
+
+<script src="recorder.js"></script>
+
 
 #### References
 * https://github.com/eeejay/espeak
