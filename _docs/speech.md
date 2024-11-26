@@ -4,15 +4,11 @@ order: 4
 title: Text to Speech
 
 ---
-
-
-
-
 <h1>Text to Speech Example</h1>
-    <textarea id="text-to-speak" rows="10" cols="50" placeholder="Enter text here..."></textarea><br>
-    <button onclick="speakText()">Speak</button>
+<textarea id="text-to-speak" rows="10" cols="50" placeholder="Enter text here..."></textarea><br>
+<button onclick="speakText()">Speak</button>
 
-    <script>
+<script>
         function speakText() {
             // Get the text from the textarea
             const text = document.getElementById('text-to-speak').value;
@@ -33,15 +29,14 @@ title: Text to Speech
                 alert('Sorry, your browser does not support text-to-speech.');
             }
         }
-    </script>
-
+</script>
 
 <h1>Speech to Text Example</h1>
-    <button id="start-btn">Start Listening</button>
-    <button id="stop-btn" disabled>Stop Listening</button>
-    <p id="transcription"></p>
+<button id="start-btn">Start Listening</button>
+<button id="stop-btn" disabled>Stop Listening</button>
+<p id="transcription"></p>
 
-    <script>
+<script>
         // Check if the browser supports the Web Speech API
         if (!('webkitSpeechRecognition' in window)) {
             alert('Sorry, your browser does not support speech recognition.');
@@ -91,4 +86,4 @@ title: Text to Speech
                 stopBtn.disabled = true;
             };
         }
-    </script>
+</script>
