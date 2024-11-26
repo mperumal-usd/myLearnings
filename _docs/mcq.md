@@ -3,10 +3,13 @@ title: Multiple Choice Questions
 category: Tools
 order: 6
 ---
+
 <h1>Multiple Choice Quiz</h1>
 <form id="quiz-form">
-  <div id="quiz-container"></div>
-  <button type="button" onclick="submitQuiz()">Submit</button>
+        <label for="name">Enter your name:</label>
+        <input type="text" id="name" required><br><br>
+        <div id="quiz-container"></div>
+        <button type="button" onclick="submitQuiz()">Submit</button>
 </form>
 <div id="results"></div>
 
@@ -29,8 +32,8 @@ order: 6
             }
         ];
 
-        function displayQuiz() {
-            const quizContainer = document.getElementById('quiz-container');
+function displayQuiz() {
+      const quizContainer = document.getElementById('quiz-container');
             questions.forEach((q, index) => {
                 const questionDiv = document.createElement('div');
                 questionDiv.classList.add('question');
@@ -57,6 +60,7 @@ order: 6
 
         function submitQuiz() {
             const form = document.getElementById('quiz-form');
+            const name = document.getElementById('name').value;
             let score = 0;
             questions.forEach((q, index) => {
                 const selectedAnswer = form[`question${index}`].value;
@@ -65,8 +69,40 @@ order: 6
                 }
             });
 
+            const resultsText = `Name: ${name}, Score: ${score} out of ${questions.length}.`;
+            const key = generateRandomKey(10);
+            const encryptedResults = xorEncryptDecrypt(resultsText, key);
+            downloadResults(encryptedResults, key);
+
             const results = document.getElementById('results');
             results.innerHTML = `You scored ${score} out of ${questions.length}.`;
+        }
+
+        function xorEncryptDecrypt(text, key) {
+            let result = '';
+            for (let i = 0; i < text.length; i++) {
+                result += String.fromCharCode(text.charCodeAt(i) ^ key.charCodeAt(i % key.length));
+            }
+            return result;
+        }
+
+        function generateRandomKey(length) {
+            const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+            let key = '';
+            for (let i = 0; i < length; i++) {
+                key += characters.charAt(Math.floor(Math.random() * characters.length));
+            }
+            return key;
+        }
+
+        function downloadResults(content, key) {
+            const element = document.createElement('a');
+            const file = new Blob([content], {type: 'text/plain'});
+            element.href = URL.createObjectURL(file);
+            element.download = `quiz_results_${key}.txt`;
+            document.body.appendChild(element); // Required for Firefox
+            element.click();
+            document.body.removeChild(element);
         }
 
         // Initialize the quiz
