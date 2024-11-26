@@ -100,6 +100,12 @@ title: Text to Speech
 
 <script src="{{ site.baseurl }}/scripts/recorder.js"></script>
 
+#### Pronunciation Checker
+<button id="record-btn">Record</button>
+<p id="status"></p>
+<p id="result"></p>
+
+<script src="pronounctiation.js"></script>
 
 #### References
 * https://github.com/eeejay/espeak
