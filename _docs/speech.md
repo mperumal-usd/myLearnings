@@ -44,7 +44,14 @@ title: Text to Speech
         if (!('webkitSpeechRecognition' in window)) {
             alert('Sorry, your browser does not support speech recognition.');
         } else {
-            const recognition = new webkitSpeechRecognition(); // Create a new instance of SpeechRecognition
+        
+        window.SpeechRecognition = window.SpeechRecognition
+            || window.webkitSpeechRecognition;
+
+        const recognition = new SpeechRecognition();
+        recognition.lang = 'ta';
+            // const recognition = new webkitSpeechRecognition(); // Create a new instance of SpeechRecognition
+                
             recognition.continuous = true; // Keep recognizing speech continuously
             recognition.interimResults = true; // Show interim results
 
