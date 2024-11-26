@@ -33,6 +33,7 @@ title:  Exploratary Data Analysis
         document.querySelector('.collapsible').addEventListener('click', toggleTable);
 
         function handleFileSelect(event) {
+            event.preventDefault(); 
             const file = event.target.files[0];
             if (!file) {
                 return;
