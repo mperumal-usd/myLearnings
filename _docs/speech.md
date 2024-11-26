@@ -98,7 +98,7 @@ title: Text to Speech
 <button id="speechStopButton" disabled>Stop Recording</button>
 <a id="speechDownloadLink" style="display:none;">Download Audio</a>
 
-<script src="recorder.js"></script>
+<script src="{{ site.baseurl }}/scripts/recorder.js"></script>
 
 
 #### References
