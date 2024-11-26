@@ -26,8 +26,8 @@ title: Text to Speech
                 // utterance.rate = 1; // Default is 1
 
                 // Speak the text
-                     // utterance.lang = 'ta-IN';
-                 window.speechSynthesis.speak(utterance);
+                utterance.lang = 'ta-IN';
+                window.speechSynthesis.speak(utterance);
             } else {
                 alert('Sorry, your browser does not support text-to-speech.');
             }
