@@ -2,14 +2,14 @@
 # Site
 
 title: Learnings
-url: "https://pages.github.corp.ebay.com"
+url: "https://mperumal-usd.github.io/myLearnings"
 baseurl:
 google_analytics_key:
 show_full_navigation: true
 
 # Values for the jekyll-seo-tag gem (https://github.com/jekyll/jekyll-seo-tag)
 logo: /siteicon.png
-description: Documentation for AI Driven Bug Classification And Triaging.
+description: My Learnings
 author:
   name:
   email:
@@ -17,7 +17,7 @@ author:
 social:
   name: Learnings
   links:
-    - https://github.corp.ebay.com/manperuma/learnings
+    - https://github.com/mperumal-usd/myLearnings
 
 # -----
 # Build
