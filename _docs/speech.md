@@ -49,7 +49,7 @@ title: Text to Speech
             || window.webkitSpeechRecognition;
 
         const recognition = new SpeechRecognition();
-        recognition.lang = 'ta';
+//        recognition.lang = 'ta';
             // const recognition = new webkitSpeechRecognition(); // Create a new instance of SpeechRecognition
                 
             recognition.continuous = true; // Keep recognizing speech continuously
