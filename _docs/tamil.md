@@ -5,7 +5,7 @@ title: Text to Speech
 
 ---
  <script src="https://code.responsivevoice.org/responsivevoice.js"></script>
-<h1>Tamil Text to Speech Example</h1>
+<h1>உரை ->  பேச்சு</h1>
 <textarea id="text-to-speak" rows="10" cols="50" placeholder="Enter text here..."></textarea><br>
 <button onclick="speakText()">Speak</button>
 
@@ -17,8 +17,8 @@ title: Text to Speech
 </script>
 
 <h1>தமிழ் பேச்சு -> உரைநடை மாற்றி</h1>
-<button id="start-btn">Start Listening</button>
-<button id="stop-btn" disabled>Stop Listening</button>
+<button id="start-btn">கேட்கத் தொடங்குங்கள்</button>
+<button id="stop-btn" disabled>கேட்பதை நிறுத்து</button>
 <p id="transcription"></p>
 
 <script>
@@ -80,12 +80,12 @@ title: Text to Speech
         }
 </script>
 
-#### Record Speech and Download
+####பேச்சைப் பதிவுசெய்து பதிவிறக்கவும்
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.7.1/jszip.min.js"></script>
-
-<button id="speechStartButton">Start Recording</button>
-<button id="speechStopButton" disabled>Stop Recording</button>
-<a id="speechDownloadLink" style="display:none;">Download Audio</a>
+ப
+<button id="speechStartButton">பதிவைத் தொடங்கவும்</button>
+<button id="speechStopButton" disabled>திவு செய்வதை நிறுத்து</button>
+<a id="speechDownloadLink" style="display:none;">பதிவிறக்கவும்</a>
 
 <script src="{{ site.baseurl }}/scripts/recorder.js"></script>
 
