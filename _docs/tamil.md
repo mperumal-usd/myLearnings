@@ -82,9 +82,8 @@ title: Text to Speech
 
 ####பேச்சைப் பதிவுசெய்து பதிவிறக்கவும்
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.7.1/jszip.min.js"></script>
-ப
 <button id="speechStartButton">பதிவைத் தொடங்கவும்</button>
-<button id="speechStopButton" disabled>திவு செய்வதை நிறுத்து</button>
+<button id="speechStopButton" disabled>பதிவு செய்வதை நிறுத்து</button>
 <a id="speechDownloadLink" style="display:none;">பதிவிறக்கவும்</a>
 
 <script src="{{ site.baseurl }}/scripts/recorder.js"></script>
