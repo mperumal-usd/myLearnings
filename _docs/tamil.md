@@ -4,7 +4,7 @@ order: 5
 title: Text to Speech
 
 ---
- <script src="https://code.responsivevoice.org/responsivevoice.js"></script>
+<script src="https://code.responsivevoice.org/responsivevoice.js?key=6V8nquQt"></script>
 <h1>உரை ->  பேச்சு</h1>
 <textarea id="text-to-speak" rows="10" cols="50" placeholder="Enter text here..."></textarea><br>
 <button onclick="speakText()">Speak</button>
