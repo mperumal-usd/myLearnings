@@ -11,7 +11,7 @@ title: Text to Speech
 
 <script>
         function speakText() {
-            const text = document.getElementById('text').value;
+            const text = document.getElementById('text-to-speak').value;
             responsiveVoice.speak(text, "Tamil Female");
         }
 </script>
