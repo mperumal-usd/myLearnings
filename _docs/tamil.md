@@ -5,7 +5,7 @@ title: Text to Speech
 
 ---
  <script src="https://code.responsivevoice.org/responsivevoice.js"></script>
-<h1>Text to Speech Example</h1>
+<h1>Tamil Text to Speech Example</h1>
 <textarea id="text-to-speak" rows="10" cols="50" placeholder="Enter text here..."></textarea><br>
 <button onclick="speakText()">Speak</button>
 
@@ -16,7 +16,7 @@ title: Text to Speech
         }
 </script>
 
-<h1>Speech to Text Example</h1>
+<h1>தமிழ் பேச்சு -> உரைநடை மாற்றி</h1>
 <button id="start-btn">Start Listening</button>
 <button id="stop-btn" disabled>Stop Listening</button>
 <p id="transcription"></p>
