@@ -5,6 +5,7 @@ title: Text to Speech
 
 ---
 <script src="https://code.responsivevoice.org/responsivevoice.js?key=6V8nquQt"></script>
+<script src="{{ site.baseurl }}/scripts/fileUpload.js"></script>
 <h1>உரை ->  பேச்சு</h1>
 <textarea id="text-to-speak" rows="10" cols="50" placeholder="இது ஒரு தமிழ் உரைநடை மாற்றி. உதாரணம்: நான் இன்னைக்கு தமிழ் ஸ்கூலுக்கு போனேன். உங்கள் உரையை இங்கு பதிவு செய்யவும்..  neengal ipppadiuym tamizhai type seiyalaam  "></textarea><br>
 <button onclick="speakText()">Speak</button>
@@ -13,6 +14,7 @@ title: Text to Speech
         function speakText() {
             const text = document.getElementById('text-to-speak').value;
             responsiveVoice.speak(text, "Tamil Female");
+            tracker();
         }
 </script>
 
@@ -23,6 +25,7 @@ title: Text to Speech
 
 <script>
         // Check if the browser supports the Web Speech API
+              tracker();
         if (!('webkitSpeechRecognition' in window)) {
             alert('Sorry, your browser does not support speech recognition.');
         } else {
