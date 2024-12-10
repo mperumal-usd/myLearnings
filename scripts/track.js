@@ -1,5 +1,5 @@
 
-export tracker(){
+function tracker(){
  const xhr = new XMLHttpRequest();
 
       // Configure it: GET-request for the URL
