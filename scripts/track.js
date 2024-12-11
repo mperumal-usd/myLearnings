@@ -11,8 +11,7 @@ function tracker(){
           // Parse the response and display it
           const response = JSON.parse(xhr.responseText);
           document.getElementById('tracker').innerHTML = `
-            <h2>${response.count}</h2>
-            <p>${response.hello}</p>
+            <p>Page Vist: ${response.count}</p>
           `;
         } else {
           // Handle errors
