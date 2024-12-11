@@ -88,6 +88,6 @@ title: Text to Speech
 <button id="speechStartButton">பதிவைத் தொடங்கவும்</button>
 <button id="speechStopButton" disabled>பதிவு செய்வதை நிறுத்து</button>
 <a id="speechDownloadLink" style="display:none;">பதிவிறக்கவும்</a>
-
+<div id="tracker"></div>
 <script src="{{ site.baseurl }}/scripts/recorder.js"></script>
 
