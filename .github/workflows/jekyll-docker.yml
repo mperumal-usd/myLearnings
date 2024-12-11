@@ -19,9 +19,11 @@ jobs:
           -H "Authorization: Bearer ${{ secrets.API_TOKEN }}" \
           -d '{"build_status": "started", "branch": "${{ github.ref_name }}", "commit": "${{ github.sha }}"}' \
           https://infinite-sands-52519-06605f47cb30.herokuapp.com/home?${{ github.sha }}
-    - uses: actions/checkout@v4
-    - name: Build the site in the jekyll/builder container
-      run: |
-        docker run \
-        -v ${{ github.workspace }}:/srv/jekyll -v ${{ github.workspace }}/_site:/srv/jekyll/_site \
-        jekyll/builder:latest /bin/bash -c "chmod -R 777 /srv/jekyll && jekyll build --future"
+    - name: Checkout
+      uses: actions/checkout@v4
+    - name: Setup Pages
+      uses: actions/configure-pages@v5
+    - name: Build
+      uses: actions/jekyll-build-pages@v1
+    - name: Upload artifact
+      uses: actions/upload-pages-artifact@v3
