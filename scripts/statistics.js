@@ -45,7 +45,7 @@ function plotData(x, y) {
   const trace = {
       x: x,
       y: y,
-      type: 'scatter',
+      type: 'line',
       mode: 'lines+markers',
       marker: { color: 'red' }
   };
