@@ -22,10 +22,8 @@ title: HSCP 1
 
 <script>
     let counter = 0;
-    window.onload = function() {
-            const workSheet=getWorkSheet();
-                   tracker();
-    }
+     const workSheet=getWorkSheet();
+    tracker();
     function sendMessage() {
       const userInput = document.getElementById('transcription');
       const message = userInput.textContent.trim();
@@ -60,7 +58,7 @@ title: HSCP 1
 
     // Optionally, focus the input field on page load
     window.onload = function() {
-      document.getElementById('userInput').focus();
+      document.getElementById('start-btn').focus();
     };
         // Check if the browser supports the Web Speech API
  
