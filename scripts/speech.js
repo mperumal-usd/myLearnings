@@ -1,29 +1,29 @@
 
-function tracker(){
- const xhr = new XMLHttpRequest();
+document.getElementById('playAudioBtn').addEventListener('click', async () => {
+  const audioPlayer = document.getElementById('audioPlayer');
+  try {
+    const text = document.getElementById('text-to-speak').value;
+    // Replace with your API URL that returns audio/mpeg
+    const apiUrl ='https://infinite-sands-52519-06605f47cb30.herokuapp.com/text_to_speech?text='+text
 
-      // Configure it: GET-request for the URL
-      xhr.open('GET', 'https://infinite-sands-52519-06605f47cb30.herokuapp.com/home', true);
+    // Fetch the audio file from the API
+    const response = await fetch(apiUrl);
 
-      // Set up a callback function to handle the response
-      xhr.onload = function () {
-        if (xhr.status === 200) {
-          // Parse the response and display it
-          const response = JSON.parse(xhr.responseText);
-          document.getElementById('tracker').innerHTML = `
-            <p>Page Vist: ${response.count}</p>
-          `;
-        } else {
-          // Handle errors
-          document.getElementById('tracker').textContent = 'Error fetching data.';
-        }
-      };
+    // Check if the response is successful
+    if (!response.ok) {
+      throw new Error(`API error: ${response.status}`);
+    }
 
-      // Handle network errors
-      xhr.onerror = function () {
-        document.getElementById('tracker').textContent = 'Network error occurred.';
-      };
+    // Convert the response into a Blob (audio file)
+    const audioBlob = await response.blob();
 
-      // Send the request
-      xhr.send();
-}
+    // Create a URL for the Blob object and set it as the source for the audio player
+    const audioUrl = URL.createObjectURL(audioBlob);
+    audioPlayer.src = audioUrl;
+
+    // Play the audio immediately after setting the source
+    audioPlayer.play();
+  } catch (error) {
+    console.error('Error fetching audio:', error);
+  }
+});
