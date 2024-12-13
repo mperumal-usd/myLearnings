@@ -42,8 +42,8 @@ title: HSCP 1
    
     tracker();
     async function sendMessage() {
-      const userInput = transcriptionStr;// document.getElementById('transcription');
-      const message = userInput.textContent.trim();
+    //   const userInput = document.getElementById('transcription');
+      const message = transcriptionStr ;//|| userInput.textContent.trim();
       
       if (message && workSheet && workSheet.conversations&& workSheet.conversations.length > counter) {
         // Display the sent message
@@ -122,7 +122,7 @@ title: HSCP 1
                     }
                 }
                 transcriptionStr=finalTranscript
-                transcription.innerHTML = `${finalTranscript}`;
+                //transcription.innerHTML = `${finalTranscript}`;
             };
 
             recognition.onerror = (event) => {
