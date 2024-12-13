@@ -22,6 +22,7 @@ title: HSCP 1
 
 <script>
     let counter = 0;
+    let transcriptionStr="";
     let workSheet={
     "intro":[
     "எச் எஸ் சி பி ஒன்றுக்கு உங்களை வரவேற்கிறோம்", "இன்றைய தலைப்பு \"பூங்கா\""
@@ -40,8 +41,8 @@ title: HSCP 1
   };
    
     tracker();
-    function sendMessage() {
-      const userInput = document.getElementById('transcription');
+    async function sendMessage() {
+      const userInput = transcriptionStr;// document.getElementById('transcription');
       const message = userInput.textContent.trim();
       
       if (message && workSheet && workSheet.conversations&& workSheet.conversations.length > counter) {
@@ -56,7 +57,7 @@ title: HSCP 1
           counter++;
          const audioPlayer = document.getElementById('audioPlayer');
           displayMessage(botResponse, 'received');
-          speakApi(botResponse,audioPlayer)
+         await speakApi(botResponse,audioPlayer)
       }
     }
 
@@ -120,7 +121,7 @@ title: HSCP 1
                         interimTranscript += transcript;
                     }
                 }
-
+                transcriptionStr=finalTranscript
                 transcription.innerHTML = `${finalTranscript}`;
             };
 
