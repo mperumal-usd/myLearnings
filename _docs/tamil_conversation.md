@@ -50,7 +50,7 @@ title: HSCP 1
         displayMessage(message, 'sent');
         
         // Clear input field
-        userInput.value = '';
+        transcriptionStr = '';
 
         // Simulate receiving a response after a brief delay
           const botResponse = workSheet.conversations[counter];
