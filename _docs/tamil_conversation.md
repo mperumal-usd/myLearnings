@@ -22,7 +22,7 @@ title: HSCP 1
 
 <script>
     let counter = 0;
-     const workSheet=getWorkSheet();
+     const workSheet=await getWorkSheet();
     tracker();
     function sendMessage() {
       const userInput = document.getElementById('transcription');
