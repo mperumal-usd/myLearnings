@@ -14,14 +14,6 @@ title: தமிழ் பேச்சு
 
 
 <script src="{{ site.baseurl }}/scripts/speech.js"></script>
-<!-- <script>
-        function speakText() {
-            const text = document.getElementById('text-to-speak').value;
-            responsiveVoice.speak(text, "Tamil Female");
-            tracker();
-        }
-</script> -->
-
 <h1>தமிழ் பேச்சு -> உரைநடை மாற்றி</h1>
 <button id="start-btn">கேட்கத் தொடங்குங்கள்</button>
 <button id="stop-btn" disabled>கேட்பதை நிறுத்து</button>
