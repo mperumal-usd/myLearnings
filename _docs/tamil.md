@@ -22,6 +22,8 @@ title: தமிழ் பேச்சு
 <script>
         // Check if the browser supports the Web Speech API
               tracker();
+              document.getElementById('playAudioBtn').addEventListener('click',speak);
+
         if (!('webkitSpeechRecognition' in window)) {
             alert('Sorry, your browser does not support speech recognition.');
         } else {

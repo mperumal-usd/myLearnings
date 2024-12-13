@@ -32,7 +32,6 @@ async function speakApi(text,audioPlayerElement) {
   }
 }
 
-document.getElementById('playAudioBtn').addEventListener('click',speak);
 
 async function getWorkSheet(){
   return {

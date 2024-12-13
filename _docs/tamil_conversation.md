@@ -28,7 +28,7 @@ title: HSCP 1
     }
     function sendMessage() {
       const userInput = document.getElementById('transcription');
-      const message = userInput.value.trim();
+      const message = userInput.textContent.trim();
       
       if (message && workSheet && workSheet.conversations&& workSheet.conversations.length > counter) {
         // Display the sent message
