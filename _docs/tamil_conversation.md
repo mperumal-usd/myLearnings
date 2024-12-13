@@ -22,7 +22,23 @@ title: HSCP 1
 
 <script>
     let counter = 0;
-     const workSheet=await getWorkSheet();
+    let workSheet={
+    "intro":[
+    "எச் எஸ் சி பி ஒன்றுக்கு உங்களை வரவேற்கிறோம்", "இன்றைய தலைப்பு \"பூங்கா\""
+    ],
+    "conversations":[
+    "நீ பூங்காவிற்கு சென்றிருக்கிறாயா?",
+    "பூங்காவில் என்ன பார்த்தாய் ?",
+    "பூங்காவில் விளையாட உனக்கு பிடிக்குமா ?",
+    "உனக்கு பிடித்த பூங்காவின் பெயர் என்ன ?",
+    "பூங்காவில் என்ன செய்வாய் ?"
+    ],
+    "words": [
+    ],
+    "test": [
+    ]
+  };
+   
     tracker();
     function sendMessage() {
       const userInput = document.getElementById('transcription');
