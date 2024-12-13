@@ -1,22 +1,26 @@
 ---
 category: Tools
 order: 5
-title: Text to Speech
+title: தமிழ் பேச்சு
 
 ---
-<script src="https://code.responsivevoice.org/responsivevoice.js?key=6V8nquQt"></script>
 <script src="{{ site.baseurl }}/scripts/track.js"></script>
+
 <h1>உரை ->  பேச்சு</h1>
 <textarea id="text-to-speak" rows="10" cols="50" placeholder="இது ஒரு தமிழ் உரைநடை மாற்றி. உதாரணம்: நான் இன்னைக்கு தமிழ் ஸ்கூலுக்கு போனேன். உங்கள் உரையை இங்கு பதிவு செய்யவும்..  neengal ipppadiuym tamizhai type seiyalaam  "></textarea><br>
-<button onclick="speakText()">Speak</button>
+<!-- <button onclick="speakText()">Speak</button> -->
+<button id="playAudioBtn">Fetch and Play Audio</button>
+<audio id="audioPlayer" controls></audio>
 
-<script>
+
+<script src="{{ site.baseurl }}/scripts/speech.js"></script>
+<!-- <script>
         function speakText() {
             const text = document.getElementById('text-to-speak').value;
             responsiveVoice.speak(text, "Tamil Female");
             tracker();
         }
-</script>
+</script> -->
 
 <h1>தமிழ் பேச்சு -> உரைநடை மாற்றி</h1>
 <button id="start-btn">கேட்கத் தொடங்குங்கள்</button>
