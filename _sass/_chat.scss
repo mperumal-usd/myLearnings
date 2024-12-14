@@ -69,6 +69,13 @@
     width: 100%;
   }
 
+  .input-area button:disabled {
+    background-color: #cccccc; /* Grey background */
+    color: #666666; /* Dimmed text color */
+    cursor: not-allowed; /* Show 'not allowed' cursor */
+    opacity: 0.6; /* Slightly transparent */
+  }
+
   .input-area button:hover {
     background-color: #45a049;
   }

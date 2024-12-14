@@ -7,7 +7,7 @@ title: HSCP 1
 <script src="{{ site.baseurl }}/scripts/track.js"></script>
 <script src="{{ site.baseurl }}/scripts/speech.js"></script>
 
-<button id="stop-btn" onclick="getExercise()">start exercise</button>
+<button id="exercise-btn" onclick="getExercise()">start exercise</button>
 
   <div class="chat-container">
     <div class="chat-box" id="chatBox">
@@ -24,28 +24,12 @@ title: HSCP 1
 
 <script>
     let counter = 0;
-    let workSheet={
-    "intro":[
-    "எச் எஸ் சி பி ஒன்றுக்கு உங்களை வரவேற்கிறோம்", "இன்றைய தலைப்பு \"பூங்கா\""
-    ],
-    "conversations":[
-    "நீ பூங்காவிற்கு சென்றிருக்கிறாயா?",
-    "பூங்காவில் என்ன பார்த்தாய் ?",
-    "பூங்காவில் விளையாட உனக்கு பிடிக்குமா ?",
-    "உனக்கு பிடித்த பூங்காவின் பெயர் என்ன ?",
-    "பூங்காவில் என்ன செய்வாய் ?"
-    ],
-    "words": [
-    ],
-    "test": [
-    ]
-  };
+    let workSheet={};
 
     async function  getExercise(){
         const header = await getWorkSheet(null,"header")
         workSheet=await getWorkSheet();
         const startBtn = document.getElementById('start-btn');
-        const stopBtn = document.getElementById('stop-btn');
         const audioPlayer = document.getElementById('audioPlayer');
         await speakApi(workSheet.intro[0],audioPlayer)
         await speakApi(workSheet.intro[1],audioPlayer)
@@ -84,11 +68,9 @@ title: HSCP 1
     // Function to display a message
     function displayMessage(message, type) {
       const chatBox = document.getElementById('chatBox');
-      
       const msgElement = document.createElement('div');
       msgElement.classList.add('message', type);
       msgElement.textContent = message;
-      
       chatBox.appendChild(msgElement);
       chatBox.scrollTop = chatBox.scrollHeight;  // Scroll to the bottom
     }
