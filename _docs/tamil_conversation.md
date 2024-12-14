@@ -12,7 +12,7 @@ title: HSCP 1
     <div class="chat-box" id="chatBox">
     </div>
     <div class="input-area">
-        <p type="text" id="userInput"  />
+        <p type="text" id="userInput"  /></p>
         <button id="start-btn">start</button>
         <button id="stop-btn" onclick="sendMessage()">send</button>
         <audio id="audioPlayer" controls></audio>
@@ -55,14 +55,13 @@ title: HSCP 1
         transcriptionStr = '';
 
         // Simulate receiving a response after a brief delay
-    
+        const audioPlayer = document.getElementById('audioPlayer');
         if(counter==0){
                 await speakApi(workSheet.intro[0],audioPlayer)
                 await speakApi(workSheet.intro[1],audioPlayer)
           }
         let botResponse = workSheet.conversations[counter];
           counter++;
-         const audioPlayer = document.getElementById('audioPlayer');
           displayMessage(botResponse, 'received');
          await speakApi(botResponse,audioPlayer)
       }
