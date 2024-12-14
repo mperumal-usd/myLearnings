@@ -41,27 +41,36 @@
     background-color: #f9f9f9;
   }
 
-  .input-area input {
-    width: 80%;
-    padding: 8px;
-    border-radius: 5px;
+  #audioPlayer {
+    display: none;
+  }
+
+  #userInput {
+    font-size: 16px;
+    color: #333;
+    text-align: center;
+    margin: 0;
+    padding: 10px;
     border: 1px solid #ddd;
-    margin-right: 10px;
+    border-radius: 5px;
+    width: 100%;
+    box-sizing: border-box;
+    background-color: #f9f9f9;
   }
 
   .input-area button {
-    padding: 8px 12px;
-    background-color: #4CAF50;
+    padding: 10px 15px;
+    font-size: 14px;
     color: white;
+    background-color: #4CAF50;
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    width: 100%;
   }
 
   .input-area button:hover {
     background-color: #45a049;
   }
 
-  #audioPlayer {
-    display: none;
-  }
+

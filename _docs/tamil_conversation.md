@@ -14,6 +14,7 @@ title: HSCP 1
     </div>
     <div class="input-area">
         <p type="text" id="userInput"></p>
+        <br>
         <button id="start-btn">start</button>
         <button id="stop-btn" onclick="sendMessage()">send</button>
         <audio id="audioPlayer" controls></audio>
@@ -58,6 +59,7 @@ title: HSCP 1
         
         // Clear input field
         transcriptionStr = '';
+        userInput.textContent="";
 
         // Simulate receiving a response after a brief delay
         const audioPlayer = document.getElementById('audioPlayer');
