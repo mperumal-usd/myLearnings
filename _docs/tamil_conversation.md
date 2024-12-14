@@ -13,7 +13,7 @@ title: HSCP 1
     <div class="chat-box" id="chatBox">
     </div>
     <div class="input-area">
-        <p type="text" id="userInput"  /></p>
+        <p type="text" id="userInput"></p>
         <button id="start-btn">start</button>
         <button id="stop-btn" onclick="sendMessage()">send</button>
         <audio id="audioPlayer" controls></audio>
