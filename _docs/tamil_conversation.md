@@ -14,7 +14,9 @@ title: HSCP 1
         <option value="4">4</option>
     </select>
 <button id="exercise-btn" onclick="getExercise()">start exercise</button>
-
+<div>
+    <p type="text" id="topicSelected"></p>
+</div>
   <div class="chat-container">
     <div class="chat-box" id="chatBox">
     </div>
@@ -35,12 +37,14 @@ title: HSCP 1
     async function  getExercise(){
         const dropdown = document.getElementById("weeks");
         const selectedValue = dropdown.value; // Get the value of the selected option
-        const selectedText = dropdown.options[dropdown.selectedIndex].text; /
+        const selectedText = dropdown.options[dropdown.selectedIndex].text; 
         const header = await getWorkSheet(null,"header")
-        workSheet=await getWorkSheet(selectedText,null);
+        workSheet=await getWorkSheet(selectedText==="" ? "1": selectedText ,null);
         const startBtn = document.getElementById('start-btn');
         const audioPlayer = document.getElementById('audioPlayer');
-        await speakApi(workSheet.intro[0],audioPlayer)
+        const topicSelected = document.getElementById('topicSelected');
+        topicSelected.textContent=workSheet.intro[1],audioPlayer
+        // await speakApi(workSheet.intro[0],audioPlayer)
         await speakApi(workSheet.intro[1],audioPlayer)
         startBtn.disabled = false;
     }
