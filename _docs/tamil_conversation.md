@@ -14,7 +14,7 @@ title: HSCP 1
     <div class="input-area">
         <p type="text" id="userInput"  />
         <button id="start-btn">start</button>
-        <button id="stop-btn" onclick="sendMessage()" disabled>send</button>
+        <button id="stop-btn" onclick="sendMessage()">send</button>
         <audio id="audioPlayer" controls></audio>
     </div>
   </div>
@@ -57,7 +57,9 @@ title: HSCP 1
         // Simulate receiving a response after a brief delay
     
         if(counter==0){
-                let botResponse = workSheet.intro[counter];
+                let botResponse = workSheet.intro[0];
+                await speakApi(botResponse,audioPlayer)
+                let botResponse = workSheet.intro[1];
                 await speakApi(botResponse,audioPlayer)
           }
           let botResponse = workSheet.conversations[counter];
