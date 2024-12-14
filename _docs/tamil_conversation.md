@@ -62,7 +62,7 @@ title: HSCP 1
                 let botResponse = workSheet.intro[1];
                 await speakApi(botResponse,audioPlayer)
           }
-          let botResponse = workSheet.conversations[counter];
+           botResponse = workSheet.conversations[counter];
           counter++;
          const audioPlayer = document.getElementById('audioPlayer');
           displayMessage(botResponse, 'received');
