@@ -45,9 +45,11 @@ title: HSCP 1
       const userInput = document.getElementById('userInput');
       const message =  userInput.textContent.trim();
       
-      if (message && workSheet && workSheet.conversations&& workSheet.conversations.length > counter) {
+      if ((message || counter==0 ) && workSheet && workSheet.conversations&& workSheet.conversations.length > counter) {
         // Display the sent message
-        displayMessage(message, 'sent');
+        if(message) {
+            displayMessage(message, 'sent');
+        }
         
         // Clear input field
         transcriptionStr = '';
