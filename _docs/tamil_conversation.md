@@ -6,7 +6,13 @@ title: HSCP 1
 ---
 <script src="{{ site.baseurl }}/scripts/track.js"></script>
 <script src="{{ site.baseurl }}/scripts/speech.js"></script>
-
+ <label for="weeks">Choose a week:</label>
+    <select id="weeks">
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+    </select>
 <button id="exercise-btn" onclick="getExercise()">start exercise</button>
 
   <div class="chat-container">
@@ -27,8 +33,11 @@ title: HSCP 1
     let workSheet={};
 
     async function  getExercise(){
+        const dropdown = document.getElementById("weeks");
+        const selectedValue = dropdown.value; // Get the value of the selected option
+        const selectedText = dropdown.options[dropdown.selectedIndex].text; /
         const header = await getWorkSheet(null,"header")
-        workSheet=await getWorkSheet("2",null);
+        workSheet=await getWorkSheet(selectedText,null);
         const startBtn = document.getElementById('start-btn');
         const audioPlayer = document.getElementById('audioPlayer');
         await speakApi(workSheet.intro[0],audioPlayer)
