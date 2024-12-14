@@ -76,6 +76,8 @@ title: HSCP 1
           counter++;
           displayMessage(botResponse, 'received');
          await speakApi(botResponse,audioPlayer)
+        const startBtn = document.getElementById('start-btn');
+        startBtn.disabled=false;
       }
     }
 
@@ -147,8 +149,8 @@ title: HSCP 1
             };
 
             recognition.onend = () => {
-                startBtn.disabled = false;
-                stopBtn.disabled = true;
+                // startBtn.disabled = false;
+                // stopBtn.disabled = true;
             };
             
         }
