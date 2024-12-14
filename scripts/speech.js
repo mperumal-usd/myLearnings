@@ -33,8 +33,14 @@ async function speakApi(text,audioPlayerElement) {
 }
 
 
-async function getWorkSheet(){
-  const apiUrl ='https://infinite-sands-52519-06605f47cb30.herokuapp.com/work_sheet'
+async function getWorkSheet(number,topic){
+  let query=""
+  if(number)
+    query+=number+"&";
+  if(topic)
+    query+=topic+"&";
+
+  const apiUrl ='https://infinite-sands-52519-06605f47cb30.herokuapp.com/work_sheet'+ (query.length > 0 ? "?"+query :"");
    // Fetch the json
    const response = await fetch(apiUrl);
    if (!response.ok){

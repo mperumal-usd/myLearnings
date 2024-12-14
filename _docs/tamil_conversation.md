@@ -15,8 +15,8 @@ title: HSCP 1
     <div class="input-area">
         <p type="text" id="userInput"></p>
         <br>
-        <button id="start-btn">start</button>
-        <button id="stop-btn" onclick="sendMessage()">send</button>
+        <button id="start-btn" disabled>start</button>
+        <button id="stop-btn" onclick="sendMessage()" disabled>send</button>
         <audio id="audioPlayer" controls></audio>
     </div>
   </div>
@@ -42,7 +42,12 @@ title: HSCP 1
   };
 
     async function  getExercise(){
+        const header = await getWorkSheet(null,"header")
         workSheet=await getWorkSheet();
+        const audioPlayer = document.getElementById('audioPlayer');
+        await speakApi(workSheet.intro[0],audioPlayer)
+        await speakApi(workSheet.intro[1],audioPlayer)
+        startBtn.disabled = false;
     }
     
     tracker();
