@@ -12,9 +12,9 @@ title: HSCP 1
     <div class="chat-box" id="chatBox">
     </div>
     <div class="input-area">
+        <p type="text" id="userInput"  />
         <button id="start-btn">start</button>
         <button id="stop-btn" onclick="sendMessage()" disabled>send</button>
-        <p id="transcription"></p>
         <audio id="audioPlayer" controls></audio>
     </div>
   </div>
@@ -42,8 +42,8 @@ title: HSCP 1
    
     tracker();
     async function sendMessage() {
-    //   const userInput = document.getElementById('transcription');
-      const message = transcriptionStr ;//|| userInput.textContent.trim();
+      const userInput = document.getElementById('userInput');
+      const message =  userInput.textContent.trim();
       
       if (message && workSheet && workSheet.conversations&& workSheet.conversations.length > counter) {
         // Display the sent message
@@ -95,7 +95,7 @@ title: HSCP 1
 
             const startBtn = document.getElementById('start-btn');
             const stopBtn = document.getElementById('stop-btn');
-            const transcription = document.getElementById('transcription');
+            const transcription = document.getElementById('userInput');
 
             startBtn.addEventListener('click', () => {
                 recognition.start(); // Start the speech recognition
@@ -122,7 +122,7 @@ title: HSCP 1
                     }
                 }
                 transcriptionStr=finalTranscript
-                //transcription.innerHTML = `${finalTranscript}`;
+                transcription.innerHTML = `${finalTranscript}`;
             };
 
             recognition.onerror = (event) => {
