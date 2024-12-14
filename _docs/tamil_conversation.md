@@ -44,6 +44,8 @@ title: HSCP 1
     async function  getExercise(){
         const header = await getWorkSheet(null,"header")
         workSheet=await getWorkSheet();
+        const startBtn = document.getElementById('start-btn');
+        const stopBtn = document.getElementById('stop-btn');
         const audioPlayer = document.getElementById('audioPlayer');
         await speakApi(workSheet.intro[0],audioPlayer)
         await speakApi(workSheet.intro[1],audioPlayer)
