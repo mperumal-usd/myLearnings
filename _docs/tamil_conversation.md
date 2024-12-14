@@ -57,12 +57,10 @@ title: HSCP 1
         // Simulate receiving a response after a brief delay
     
         if(counter==0){
-                let botResponse = workSheet.intro[0];
-                await speakApi(botResponse,audioPlayer)
-                let botResponse = workSheet.intro[1];
-                await speakApi(botResponse,audioPlayer)
+                await speakApi(workSheet.intro[0],audioPlayer)
+                await speakApi(workSheet.intro[1],audioPlayer)
           }
-           botResponse = workSheet.conversations[counter];
+        let botResponse = workSheet.conversations[counter];
           counter++;
          const audioPlayer = document.getElementById('audioPlayer');
           displayMessage(botResponse, 'received');
