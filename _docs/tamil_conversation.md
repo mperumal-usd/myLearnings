@@ -55,7 +55,12 @@ title: HSCP 1
         transcriptionStr = '';
 
         // Simulate receiving a response after a brief delay
-          const botResponse = workSheet.conversations[counter];
+    
+        if(counter==0){
+                let botResponse = workSheet.intro[counter];
+                await speakApi(botResponse,audioPlayer)
+          }
+          let botResponse = workSheet.conversations[counter];
           counter++;
          const audioPlayer = document.getElementById('audioPlayer');
           displayMessage(botResponse, 'received');
