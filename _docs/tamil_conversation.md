@@ -7,6 +7,7 @@ title: HSCP 1
 <script src="{{ site.baseurl }}/scripts/track.js"></script>
 <script src="{{ site.baseurl }}/scripts/speech.js"></script>
 
+<button id="stop-btn" onclick="getExercise()">start exercise</button>
 
   <div class="chat-container">
     <div class="chat-box" id="chatBox">
@@ -39,7 +40,11 @@ title: HSCP 1
     "test": [
     ]
   };
-   
+
+    async function  getExercise(){
+        workSheet=await getWorkSheet();
+    }
+    
     tracker();
     async function sendMessage() {
       const userInput = document.getElementById('userInput');
