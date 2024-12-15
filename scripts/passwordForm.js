@@ -37,12 +37,12 @@ submitButton.addEventListener("click", (event) => {
     // Optional: Store all message values in an array
     const messageArray = Array.from(messages).map(message => message.textContent.trim());
     console.log(messageArray);
-    fetch('https://infinite-sands-52519-06605f47cb30.herokuapp.com/save_conversation', {
+    fetch('https://infinite-sands-52519-06605f47cb30.herokuapp.com/save_work', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ "password": passwordInput , "content": messageArray }),
+        body: JSON.stringify({ "password": passwordInput , "content": messageArray, 'work': "conversation" }),
     })
         .then(response => response.json())
         .then(data => {
