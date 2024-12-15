@@ -17,8 +17,8 @@ function drop(event, blankId) {
     dropZone.innerHTML = draggedElement.innerHTML;
     dropZone.style.backgroundColor = '#e0f7fa';  // Change background color after drop
     
-    // Disable further dragging of the dropped element
-    draggedElement.setAttribute("draggable", "false");
+    // // Disable further dragging of the dropped element
+    // draggedElement.setAttribute("draggable", "false");
 
     // Check if both blanks are filled correctly
     checkAnswers();
