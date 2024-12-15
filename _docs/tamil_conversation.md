@@ -6,6 +6,7 @@ title: HSCP 1
 ---
 <script src="{{ site.baseurl }}/scripts/track.js"></script>
 <script src="{{ site.baseurl }}/scripts/speech.js"></script>
+
  <label for="weeks">Choose a week:</label>
     <select id="weeks">
         <option value="1">1</option>
@@ -29,7 +30,18 @@ title: HSCP 1
     </div>
   </div>
 
+  <button id="saveButton">Save</button>
 
+    <!-- Modal -->
+<div id="overlay"></div>
+<div id="passwordModal">
+        <h2>Enter Password</h2>
+        <input type="password" id="passwordInput" name="password" placeholder="Enter your password" required>
+        <button type="button" id="submitButton">Submit</button>
+        <button type="button" id="cancelButton">Cancel</button>
+</div>
+
+<script src="{{ site.baseurl }}/scripts/passwordForm.js"></script>
 <script>
     let counter = 0;
     let workSheet={};
