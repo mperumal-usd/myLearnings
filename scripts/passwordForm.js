@@ -23,9 +23,8 @@ overlay.addEventListener("click", () => {
 });
 
 // Form submission
-const passwordForm = document.getElementById("passwordForm");
 submitButton.addEventListener("click", (event) => {
-const passwordInput = document.getElementById("passwordInput").value;
+    const passwordInput = document.getElementById("passwordInput").value;
     if (!passwordInput) {
         alert("Please enter your password.");
         event.preventDefault(); // Stop form submission
@@ -43,7 +42,7 @@ const passwordInput = document.getElementById("passwordInput").value;
         headers: {
             'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ password: password , content: messageArray }),
+        body: JSON.stringify({ password: passwordInput , content: messageArray }),
     })
         .then(response => response.json())
         .then(data => {
