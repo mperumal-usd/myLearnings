@@ -41,17 +41,30 @@ function checkAnswers() {
 
 // Attach the drop functionality to the blanks
 
+async function getQuestions(){
+    const apiUrl ='https://infinite-sands-52519-06605f47cb30.herokuapp.com/questions');
+     // Fetch the json
+     const response = await fetch(apiUrl);
+     if (!response.ok){
+      return {}
+     }
+     return response.json()
+  }
+  
+
 
 function onNext(){
     const question = document.getElementById("question");
-    const questionJson={
+    let questionJson={
          "questionSeg1":"ஒரு பள்ளியை வழிநடத்த தலைமை ஆசிரியருக்கு சிறந்த",
-         "questionSeg":"திறன் வேண்டும்",
+         "questionSeg2":"திறன் வேண்டும்",
         "choice1": "மேலான்மை",
         "choice2": "மேலாண்மை",
         "id": "234",
         "ans": "மேலாண்மை"
     }
+    const questions=getQuestions();
+    questionJson= questions ?questions:questionJson;
     question.setAttribute("data-id",questionJson.id);
     question.setAttribute("ans",questionJson.ans);
     question.innerHTML=`<p>${questionJson.questionSeg1}  <span class="drop-zone" id="blank1">_____</span>.</p> ${questionJson.questionSeg2} `
@@ -66,13 +79,13 @@ function onLoad(){
     const question = document.getElementById("question");
     const questionJson={
          "questionSeg1":"ஒரு பள்ளியை வழிநடத்த தலைமை ஆசிரியருக்கு சிறந்த",
-         "questionSeg":"திறன் வேண்டும்",
+         "questionSeg2":"திறன் வேண்டும்",
         "choice1": "மேலாண்மை",
         "choice2": "மேலான்மை",
         "id": "1234",
         "ans": "மேலாண்மை"
     }
-    question.setAttribute("question-id",questionJson.id);
+    question.setAttribute("data-id",questionJson.id);
     question.setAttribute("ans",questionJson.ans);
     question.innerHTML=`<p>${questionJson.questionSeg1}  <span class="drop-zone" id="blank1">_____</span>.</p> ${questionJson.questionSeg2} `
 
@@ -87,3 +100,4 @@ function onLoad(){
     answer2.innerHTML=questionJson.choice2;   
 }
 onLoad();
+
