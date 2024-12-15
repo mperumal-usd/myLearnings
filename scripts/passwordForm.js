@@ -46,7 +46,7 @@ submitButton.addEventListener("click", (event) => {
     })
         .then(response => response.json())
         .then(data => {
-            alert('Work saved successfully! ' +data.id ? data.id : "");
+            alert('Work saved successfully!  ' +(data.id ? "id :"+data.id : ""));
             document.getElementById('passwordModal').style.display = 'none';
         })
         .catch(error => {

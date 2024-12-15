@@ -31,8 +31,7 @@ title: HSCP 1
   </div>
 
   <button id="saveButton">Save</button>
-
-    <!-- Modal -->
+  
 <div id="overlay"></div>
 <div id="passwordModal">
         <h2>Enter Password</h2>
