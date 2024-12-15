@@ -1,12 +1,10 @@
 function drag(event) {
     event.dataTransfer.setData("text", event.target.id);
 }
-
 // Allow the drop on the target drop-zone
 function allowDrop(event) {
     event.preventDefault();
 }
-
 // Handle the drop event
 function drop(event, blankId) {
     event.preventDefault();
