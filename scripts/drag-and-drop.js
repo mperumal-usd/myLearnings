@@ -42,7 +42,7 @@ function checkAnswers() {
 // Attach the drop functionality to the blanks
 
 async function getQuestions(){
-    const apiUrl ='https://infinite-sands-52519-06605f47cb30.herokuapp.com/questions');
+    const apiUrl ='https://infinite-sands-52519-06605f47cb30.herokuapp.com/questions';
      // Fetch the json
      const response = await fetch(apiUrl);
      if (!response.ok){
