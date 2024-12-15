@@ -53,7 +53,7 @@ async function getQuestions(){
   
 
 
-function onNext(){
+async function onNext(){
     const question = document.getElementById("question");
     let questionJson={
          "questionSeg1":"ஒரு பள்ளியை வழிநடத்த தலைமை ஆசிரியருக்கு சிறந்த",
@@ -63,7 +63,7 @@ function onNext(){
         "id": "234",
         "ans": "மேலாண்மை"
     }
-    const questions=getQuestions();
+    const questions=await getQuestions();
     questionJson= questions ?questions:questionJson;
     question.setAttribute("data-id",questionJson.id);
     question.setAttribute("ans",questionJson.ans);
