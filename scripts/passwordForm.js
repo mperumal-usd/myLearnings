@@ -42,7 +42,7 @@ submitButton.addEventListener("click", (event) => {
         headers: {
             'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ password: passwordInput , content: messageArray }),
+        body: JSON.stringify({ "password": passwordInput , "content": messageArray }),
     })
         .then(response => response.json())
         .then(data => {
