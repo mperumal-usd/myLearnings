@@ -47,10 +47,10 @@ const passwordInput = document.getElementById("passwordInput").value;
     })
         .then(response => response.json())
         .then(data => {
-            alert('Password saved successfully!');
+            alert('Work saved successfully! ' +data.id ? data.id : "");
             document.getElementById('passwordModal').style.display = 'none';
         })
         .catch(error => {
-            alert('Failed to save password.');
+            alert('Failed to save work.');
         });
 });
