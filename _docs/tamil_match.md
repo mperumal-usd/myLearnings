@@ -20,4 +20,4 @@ title: தமிழ் உரைநடை
 </div>
 
 <p class="message" id="message"></p>
-<button id="next-match-btn" onclick="next()">next</button>
+<button id="next-match-btn" onclick="onNext()">next</button>
