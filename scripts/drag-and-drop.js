@@ -42,15 +42,7 @@ function checkAnswers() {
 }
 
 // Attach the drop functionality to the blanks
-document.getElementById("blank1").addEventListener("dragover", allowDrop);
-document.getElementById("blank1").addEventListener("drop", function(event) {
-    drop(event, "blank1");
-});
 
-document.getElementById("blank2").addEventListener("dragover", allowDrop);
-document.getElementById("blank2").addEventListener("drop", function(event) {
-    drop(event, "blank2");
-});
 
 function onNext(){
     const question = document.getElementById("question");
@@ -85,6 +77,11 @@ function onLoad(){
     question.setAttribute("question-id",questionJson.id);
     question.setAttribute("ans",questionJson.ans);
     question.innerHTML=`<p>${questionJson.questionSeg1}  <span class="drop-zone" id="blank1">_____</span>.</p> ${questionJson.questionSeg2} `
+
+    document.getElementById("blank1").addEventListener("dragover", allowDrop);
+    document.getElementById("blank1").addEventListener("drop", function(event) {
+        drop(event, "blank1");
+    });
 
     const answer1 = document.getElementById("answer1");
     const answer2 = document.getElementById("answer2");
