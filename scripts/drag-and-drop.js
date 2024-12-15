@@ -52,7 +52,7 @@ function onNext(){
         "id": "234",
         "ans": "மேலாண்மை"
     }
-    question.setAttribute("question-id",questionJson.id);
+    question.setAttribute("data-id",questionJson.id);
     question.setAttribute("ans",questionJson.ans);
     question.innerHTML=`<p>${questionJson.questionSeg1}  <span class="drop-zone" id="blank1">_____</span>.</p> ${questionJson.questionSeg2} `
 

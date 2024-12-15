@@ -8,7 +8,7 @@ title: தமிழ் உரைநடை
 
 <p>Drag the correct answers to the blanks:</p>
 
-<div id="questions"><div id="question" "question-id"=1></div>
+<div id="questions"><div id="question" data-id="1"></div>
     <div>
         <div class="draggable" id="answer1" draggable="true" ondragstart="drag(event)"></div>
         <div class="draggable" id="answer2" draggable="true" ondragstart="drag(event)"></div>
