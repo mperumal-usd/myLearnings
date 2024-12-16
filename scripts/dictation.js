@@ -93,7 +93,7 @@ function getRandomNumber(min, max) {
             const userAnswer = document.getElementById('textInput').value.trim();
             const resultElement = document.getElementById('result');
             const noSpaces = currentQuestion.answer.replace(/\s+/g, "");
-            if (userAnswer === currentQuestion.answer || userAnswer.toLowerCase() === currentQuestion.answer || userAnswer === noSpaces ) {
+            if (userAnswer === currentQuestion.answer || userAnswer.toLowerCase() === currentQuestion.answer.toLowerCase() || userAnswer === noSpaces ) {
                 resultElement.innerText = 'Correct!';
                 resultElement.style.color = 'green';
             } else {
