@@ -116,5 +116,5 @@ title: Text to Speech
 
 #### References
 * https://github.com/eeejay/espeak
-* https://www.heroku.com/platform?utm_source=google&utm_medium=paid_search&utm_campaign=amer_heraw&utm_content=general-branded-search-rsa&utm_term=heroku&utm_source_platform=GoogleAds&gad_source=1&gclid=CjwKCAiA3ZC6BhBaEiwAeqfvyilrfhdmv6lJ-vWAHVEN5Wgb922FVKo-qJsdq_w23E7SBlEEU_QQ3xoCXj8QAvD_BwE
+
 
