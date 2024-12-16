@@ -92,15 +92,12 @@ function getRandomNumber(min, max) {
         function checkAnswer() {
             const userAnswer = document.getElementById('textInput').value.trim();
             const resultElement = document.getElementById('result');
-            
-            if (userAnswer === currentQuestion.answer) {
+            const noSpaces = currentQuestion.answer.replace(/\s+/g, "");
+            if (userAnswer === currentQuestion.answer || userAnswer.toLowerCase() === currentQuestion.answer || userAnswer === noSpaces ) {
                 resultElement.innerText = 'Correct!';
                 resultElement.style.color = 'green';
             } else {
                 resultElement.innerText = `Incorrect. The correct answer is "${currentQuestion.answer}".`;
                 resultElement.style.color = 'red';
             }
-
-            // Generate a new question after a short delay
-            // setTimeout(generateQuestion, 3000);
         }
