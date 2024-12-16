@@ -24,7 +24,6 @@ function getRandomNumber(min, max) {
         async function generateQuestion() {
             let dictionary=await getQuestions()
             const tamilWords = Object.keys(dictionary);
-            const text = "முத்து"; // Tamil word
             const segmenter = new Intl.Segmenter("ta", { granularity: "grapheme" });
             const randomTamilWord = tamilWords[Math.floor(Math.random() * tamilWords.length)];
             const englishMeaning = dictionary[randomTamilWord];
@@ -57,26 +56,28 @@ function getRandomNumber(min, max) {
                 letterBox.appendChild(letterButton);
             }); 
               // Function to add letter to the input box
-              function addLetterToInput(letter) {
+        function addLetterToInput(letter) {
             const inputBox = document.getElementById("textInput");
             inputBox.value += letter; // Append the clicked letter to the input box
         }
 
-        // Function to clear the input box
-        function clearInput() {
-            const inputBox = document.getElementById("textInput");
-            inputBox.value = ""; // Clear the input box
-        } 
+        // // Function to clear the input box
+        // function clearInput() {
+        //     const inputBox = document.getElementById("textInput");
+        //     inputBox.value = ""; // Clear the input box
+        // } 
 
     } else {
                 // Ask for the English meaning of jumbled Tamil word
                 const letters = [...segmenter.segment(randomTamilWord)].map(seg => seg.segment);
-                console.log(letters);
+                // console.log(letters);
                 const jumbledWord = letters.sort(() => Math.random() - 0.5).join('');
                 currentQuestion = {
                     question: `What is the english meaning of the jumbled Tamil word "${jumbledWord}"?`,
                     answer: englishMeaning
                 };
+                const letterBox = document.getElementById("letterBox");
+                letterBox.innerHTML = "";
     }
 
              // Tamil letters to display as buttons
