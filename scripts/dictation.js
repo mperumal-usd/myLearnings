@@ -1,4 +1,9 @@
 
+async function start() {
+    const quizButton=document.getElementById("quiz-start");
+    quizButton.textContent ="next"
+    await generateQuestion();
+}
 
 async function getQuestions(){
     const apiUrl ='https://infinite-sands-52519-06605f47cb30.herokuapp.com/dictations';
@@ -10,7 +15,7 @@ async function getQuestions(){
      return response.json()
   }
 
-        function getRandomNumber(min, max) {
+function getRandomNumber(min, max) {
     return Math.floor(Math.random() * (max - min)) + min;
 }
 
@@ -23,7 +28,6 @@ async function getQuestions(){
             const segmenter = new Intl.Segmenter("ta", { granularity: "grapheme" });
             const randomTamilWord = tamilWords[Math.floor(Math.random() * tamilWords.length)];
             const englishMeaning = dictionary[randomTamilWord];
-
             // Randomly decide the question type
             const questionType = Math.random() < 0.5 ? 1 : 2;
 
@@ -97,8 +101,5 @@ async function getQuestions(){
             }
 
             // Generate a new question after a short delay
-            setTimeout(generateQuestion, 3000);
+            // setTimeout(generateQuestion, 3000);
         }
-
-        // Initialize the first question
-        generateQuestion();
