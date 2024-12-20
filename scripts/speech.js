@@ -13,6 +13,12 @@ async function speakApi(text,audioPlayerElement) {
     // Fetch the audio file from the API
     const response = await fetch(apiUrl);
 
+    if (response.status === 401) {
+      // Redirect to login page if not authenticated
+      window.location.href = "https://mperumal-usd.github.io/myLearnings/Login"; 
+      return;
+    }
+    
     // Check if the response is successful
     if (!response.ok) {
       throw new Error(`API error: ${response.status}`);
