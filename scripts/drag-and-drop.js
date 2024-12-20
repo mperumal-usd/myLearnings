@@ -44,7 +44,9 @@ function checkAnswers() {
 async function getQuestions(){
     const apiUrl ='https://infinite-sands-52519-06605f47cb30.herokuapp.com/questions';
      // Fetch the json
-     const response = await fetch(apiUrl,{credentials:'include'});
+     const response = await fetch(apiUrl,{ headers: {
+        Authorization: sessionStorage.getItem('sessionToken')
+      }});
      if (response.status === 401) {
         // Redirect to login page if not authenticated
         window.location.href = "https://mperumal-usd.github.io/myLearnings/Login"; // Replace '/login' with your actual login URL

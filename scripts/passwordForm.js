@@ -41,9 +41,9 @@ submitButton.addEventListener("click", (event) => {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
+            Authorization: sessionStorage.getItem('sessionToken')
         },
-        body: JSON.stringify({ "password": passwordInput , "content": messageArray, 'work': "conversation" }),
-        credentials:'include'
+        body: JSON.stringify({ "password": passwordInput , "content": messageArray, 'work': "conversation" })
     })
         .then( response => {
             if (response.status === 401) {

@@ -11,14 +11,16 @@ async function speakApi(text,audioPlayerElement) {
     const apiUrl ='https://infinite-sands-52519-06605f47cb30.herokuapp.com/text_to_speech?text='+text
 
     // Fetch the audio file from the API
-    const response = await fetch(apiUrl);
+    const response = await fetch(apiUrl,{ headers: {
+      Authorization: sessionStorage.getItem('sessionToken')
+    }});
 
     if (response.status === 401) {
       // Redirect to login page if not authenticated
       window.location.href = "https://mperumal-usd.github.io/myLearnings/Login"; 
       return;
     }
-    
+
     // Check if the response is successful
     if (!response.ok) {
       throw new Error(`API error: ${response.status}`);
@@ -48,7 +50,9 @@ async function getWorkSheet(number,topic){
 
   const apiUrl ='https://infinite-sands-52519-06605f47cb30.herokuapp.com/work_sheet'+ (query.length > 0 ? "?"+query :"");
    // Fetch the json
-   const response = await fetch(apiUrl,{credentials: 'include'});
+   const response = await fetch(apiUrl,{ headers: {
+    Authorization: sessionStorage.getItem('sessionToken')
+  }});
    if (response.status === 401) {
     // Redirect to login page if not authenticated
     window.location.href = "https://mperumal-usd.github.io/myLearnings/Login"; 
