@@ -8,7 +8,9 @@ async function start() {
 async function getQuestions(){
     const apiUrl ='https://infinite-sands-52519-06605f47cb30.herokuapp.com/dictations';
      // Fetch the json
-     const response = await fetch(apiUrl,{ credentials: 'include' });
+     const response = await fetch(apiUrl,{ credentials: 'include',headers: {
+        Authorization: `Bearer ${getCookie("sessionToken")}`
+      } });
      if (response.status === 401) {
         // Redirect to login page if not authenticated
         window.location.href = "https://mperumal-usd.github.io/myLearnings/Login"; // Replace '/login' with your actual login URL
@@ -106,3 +108,21 @@ function getRandomNumber(min, max) {
                 resultElement.style.color = 'red';
             }
         }
+
+        document.addEventListener("DOMContentLoaded", () => {
+            const token = getCookie("sessionToken");
+            if (token) {
+              console.log("Session Token:", token);
+              // Use the token for API calls or authentication
+            } else {
+              console.log("No session token found.");
+            }
+          });
+          
+          function getCookie(name) {
+            const value = `; ${document.cookie}`;
+            const parts = value.split(`; ${name}=`);
+            if (parts.length === 2) return parts.pop().split(";").shift();
+            return null;
+          }
+          
