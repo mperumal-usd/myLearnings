@@ -10,12 +10,17 @@ function tracker(){
         if (xhr.status === 200) {
           // Parse the response and display it
           const response = JSON.parse(xhr.responseText);
-          document.getElementById('tracker').innerHTML = `
+          const trackerElement=document.getElementById('tracker');
+          if(trackerElement){
+          trackerElement.innerHTML = `
             <p>Page Vist: ${response.count}</p>
           `;
+          }
         } else {
           // Handle errors
-          document.getElementById('tracker').textContent = 'Error fetching data.';
+          const trackerElement=document.getElementById('tracker');
+          if(trackerElement){}
+          trackerElement.textContent = 'Error fetching data.';
         }
       };
 

@@ -12,6 +12,7 @@ async function getQuestions(){
      if (response.status === 401) {
         // Redirect to login page if not authenticated
         window.location.href = "https://mperumal-usd.github.io/myLearnings/Login"; // Replace '/login' with your actual login URL
+        return;
       }
      if (!response.ok){
       return {}

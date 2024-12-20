@@ -35,7 +35,7 @@ form.addEventListener('submit', function(event) {
             })
             .then(data => {
                 console.log('Response:', data); // Handle the server response (success)
-                alert('Login successful!');
+                window.location.href = "https://mperumal-usd.github.io/myLearnings/"; 
             })
             .catch(error => {
                 console.error('Error:', error); // Handle any errors (failed login, network issues)

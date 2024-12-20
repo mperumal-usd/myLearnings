@@ -43,8 +43,19 @@ submitButton.addEventListener("click", (event) => {
             'Content-Type': 'application/json',
         },
         body: JSON.stringify({ "password": passwordInput , "content": messageArray, 'work': "conversation" }),
+        credentials:'include'
     })
-        .then(response => response.json())
+        .then( response => {
+            if (response.status === 401) {
+              // Handle 401 Unauthorized - user is not authenticated
+              console.log('Unauthorized! Redirecting to login...');
+              // Redirect to login page (or handle error accordingly)
+              window.location.href ="https://mperumal-usd.github.io/myLearnings/Login"; // Redirect to login page
+              return; // Stop further execution if 401 is encountered
+            }
+            // If the status is OK or other success code, handle it
+            return response.json();  // Parse the JSON response
+          })
         .then(data => {
             alert('Work saved successfully!  ' +(data.id ? "id :"+data.id : ""));
             document.getElementById('passwordModal').style.display = 'none';
