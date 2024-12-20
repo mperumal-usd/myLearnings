@@ -24,8 +24,7 @@ form.addEventListener('submit', function(event) {
                 headers: {
                     'Content-Type': 'application/json' // Indicating the content type
                 },
-                body: JSON.stringify(data), // Convert data to JSON format
-                credentials: 'include'
+                body: JSON.stringify(data) // Convert data to JSON format
             })
             .then(response => {
                 if (response.ok) {
