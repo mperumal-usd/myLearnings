@@ -9,7 +9,7 @@ async function getQuestions(){
     const apiUrl ='https://infinite-sands-52519-06605f47cb30.herokuapp.com/dictations';
      // Fetch the json
      const response = await fetch(apiUrl,{ credentials: 'include',headers: {
-        Authorization: `Bearer ${getCookie("sessionToken")}`
+        Authorization: sessionStorage.getItem('sessionToken')
       } });
      if (response.status === 401) {
         // Redirect to login page if not authenticated
