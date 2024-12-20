@@ -11,7 +11,7 @@ async function getQuestions(){
      const response = await fetch(apiUrl);
      if (response.status === 401) {
         // Redirect to login page if not authenticated
-        window.location.href = '{{ site.baseurl }}'+"/"; // Replace '/login' with your actual login URL
+        window.location.href = "https://mperumal-usd.github.io/myLearnings/login"; // Replace '/login' with your actual login URL
       }
      if (!response.ok){
       return {}
