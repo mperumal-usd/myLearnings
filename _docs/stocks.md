@@ -81,7 +81,7 @@ title: Guidance
                             width: 1  // Border width
                         }
                     },
-                    nbinsx: 10,  // Number of bins in the histogram
+                    nbinsx: 20,  // Number of bins in the histogram
                 };
 
                 // Layout configuration
@@ -98,7 +98,7 @@ title: Guidance
                 // Create the plot
                 Plotly.newPlot('stock_hist', [traceHist], layoutHist);
 
-             } catch (error) {
+     } catch (error) {
                 console.error('Error:', error);
                 alert('An error occurred while fetching or plotting data. Please try again.');
             }
