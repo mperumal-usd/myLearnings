@@ -9,15 +9,21 @@ title: Guidance
 #### Stock Data Plotter
 <div class="stock_container">
     <form id="stock_form">
-    <div>
-        <label id="stock_label" for="stock_symbol">Enter Stock Symbol:</label>
-        <input type="text" id="stock_symbol" name="symbol" required>
-        <label id="stock_mva_label" for="stock_mva_symbol">MovingAverage</label>
-        <input type="text" id="stock_mva_symbol" name="symbol">
-          <label id="stock_window_label" for="stock_window_symbol">LookBack</label>
-        <input type="text" id="stock_window_symbol" name="symbol">
-        <button id="stock_button" type="submit">Get Data</button>
-    </div>
+        <div>
+            <span>
+                    <label id="stock_label" for="stock_symbol">Enter Stock Symbol:</label>
+                    <input type="text" id="stock_symbol" name="symbol" required>
+            </span>
+            <span>
+                    <label id="stock_mva_label" for="stock_mva_symbol">Moving Average:</label>
+                    <input type="text" id="stock_mva_symbol" name="mva">
+            </span>
+            <span>
+                    <label id="stock_window_label" for="stock_window_symbol">LookBack Window:</label>
+                    <input type="text" id="stock_window_symbol" name="window">
+            </span>
+            <button id="stock_button" type="submit">Get Data</button>
+        </div>
     </form>
     <div id="stock_plot"></div>
     <div id="stock_hist"></div>
