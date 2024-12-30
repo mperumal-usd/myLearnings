@@ -14,6 +14,7 @@ title: Guidance
         <button id="stock_button" type="submit">Get Data</button>
     </form>
     <div id="stock_plot"></div>
+    <div id="stock_hist"></div>
 </div>
 
 <script>
@@ -64,6 +65,33 @@ title: Guidance
                 };
 
                 Plotly.newPlot('stock_plot', [trace,trace1,trace2], layout);
+
+                const trace = {
+        x: result.ratio,  // data array
+        type: 'histogram',  // specify the type as histogram
+        marker: {
+            color: 'rgba(0,123,255,0.7)',  // Color of the bars
+            line: {
+                color: 'rgba(0,123,255,1)',  // Border color
+                width: 1  // Border width
+            }
+        },
+        nbinsx: 10,  // Number of bins in the histogram
+    };
+
+    // Layout configuration
+    const layout = {
+        title: 'Sample Histogram',
+        xaxis: {
+            title: 'Value',
+        },
+        yaxis: {
+            title: 'Frequency',
+        },
+    };
+
+    // Create the plot
+    Plotly.newPlot('plot', [trace], layout);
             } catch (error) {
                 console.error('Error:', error);
                 alert('An error occurred while fetching or plotting data. Please try again.');

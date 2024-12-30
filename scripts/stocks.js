@@ -159,6 +159,6 @@ async function calculateBuyAndSell(dates,prices, mva, lookBack) {
                 const buySignals = findLessThanOrEqual(shiftRatio, lowerThreshold);
                 const sellPrices = getByPrices(prices, dates, sellSignals)
                 const buyPrices = getByPrices(prices, dates, buySignals)
-            return {'sellPrices':sellPrices,'buyPrices':buyPrices}
+            return {'sellPrices':sellPrices,'buyPrices':buyPrices,"ratio":shiftRatio,"stats":result}
 }
 
