@@ -7,20 +7,20 @@ title: Guidance
 <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
 
 #### Stock Data Plotter
-
-<form id="stock-form">
-    <label for="symbol">Enter Stock Symbol:</label>
-    <input type="text" id="symbol" name="symbol" required>
-    <button type="submit">Get Data</button>
-</form>
-<div id="plot"></div>
-
+<div class="stock_container">
+    <form id="stock_form">
+        <label id="stock_label" for="symbol">Enter Stock Symbol:</label>
+        <input type="text" id="stock_symbol" name="symbol" required>
+        <button id="stock_button" type="submit">Get Data</button>
+    </form>
+    <div id="stock_plot"></div>
+</div>
 
 <script>
-        document.getElementById('stock-form').addEventListener('submit', async function(event) {
+        document.getElementById('stock_form').addEventListener('submit', async function(event) {
             event.preventDefault();
 
-            const symbol = document.getElementById('symbol').value.trim();
+            const symbol = document.getElementById('stock_symbol').value.trim();
             if (!symbol) {
                 alert('Please enter a stock symbol.');
                 return;
@@ -47,7 +47,7 @@ title: Guidance
                     yaxis: { title: 'Price (USD)' }
                 };
 
-                Plotly.newPlot('plot', [trace], layout);
+                Plotly.newPlot('stock_plot', [trace], layout);
             } catch (error) {
                 console.error('Error:', error);
                 alert('An error occurred while fetching or plotting data. Please try again.');
