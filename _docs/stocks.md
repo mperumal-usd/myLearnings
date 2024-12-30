@@ -3,7 +3,7 @@ category: Stocks
 order: 1
 title: Guidance
 ---
-<script src="{{ site.baseurl }}/scripts/statistics.js"></script>
+<script src="{{ site.baseurl }}/scripts/stocks.js"></script>
 <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
 
  #### Stock Data Plotter
