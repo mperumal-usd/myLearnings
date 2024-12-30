@@ -91,7 +91,7 @@ title: Guidance
     };
 
     // Create the plot
-    Plotly.newPlot('plot', [trace], layout);
+    Plotly.newPlot('stock_hist', [trace], layout);
             } catch (error) {
                 console.error('Error:', error);
                 alert('An error occurred while fetching or plotting data. Please try again.');
