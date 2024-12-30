@@ -38,7 +38,7 @@ title: Guidance
                 const data = await getStockData(symbol);
                 const dates =  data.data.map(entry => entry.date);
                 const prices =  data.data.map(entry => entry.adjClose);
-                const result= await calculateBuyAndSell(dates,prices,mva?parseInt(mva, 10);:3,window?parseInt(window, 10):10)
+                const result= await calculateBuyAndSell(dates,prices,mva?parseInt(mva, 10):3,window?parseInt(window, 10):10)
 
                 // Plot data using Plotly
                 const trace = {
