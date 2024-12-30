@@ -1,7 +1,7 @@
 
 async function getStockData(symbol){
     let query=""
-    if(number)
+    if(symbol)
         query+="stock="+symbol+"&";
     const apiUrl ='https://infinite-sands-52519-06605f47cb30.herokuapp.com/stocks'+ (query.length > 0 ? "?"+query :"");
      // Fetch the json
