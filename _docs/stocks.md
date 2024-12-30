@@ -80,8 +80,7 @@ title: Guidance
                             color: 'rgba(0,123,255,1)',  // Border color
                             width: 1  // Border width
                         }
-                    },
-                    nbinsx: 20,  // Number of bins in the histogram
+                    }
                 };
 
                 // Layout configuration
