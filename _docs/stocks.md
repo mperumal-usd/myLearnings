@@ -6,7 +6,7 @@ title: Guidance
 <script src="{{ site.baseurl }}/scripts/stocks.js"></script>
 <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
 
- #### Stock Data Plotter
+#### Stock Data Plotter
 
 <form id="stock-form">
     <label for="symbol">Enter Stock Symbol:</label>
