@@ -31,6 +31,7 @@ title: Guidance
 
                 const dates =  data.data.map(entry => entry.date);
                 const prices =  data.data.map(entry => entry.adjClose);
+                const result=calculateBuyAndSell(dates,prices,3,10)
 
                 // Plot data using Plotly
                 const trace = {
@@ -39,6 +40,22 @@ title: Guidance
                     type: 'scatter',
                     mode: 'lines',
                     name: `${symbol} Closing Prices`
+                };
+
+                  const trace1 = {
+                    x: result.sellPrices.map(entry => entry.date),
+                    y: result.sellPrices.map(entry => entry.price),
+                    type: 'scatter',
+                    mode: 'markers',
+                    name: `${symbol} Selling Prices`
+                };
+
+                  const trace2 = {
+                    x: result.buyPrices.map(entry => entry.date),
+                    y: result.buyPrices.map(entry => entry.price),
+                    type: 'scatter',
+                    mode: 'markers',
+                    name: `${symbol} Buying Prices`
                 };
 
                 const layout = {
