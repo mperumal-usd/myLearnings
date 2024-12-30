@@ -9,7 +9,7 @@ title: Guidance
 #### Stock Data Plotter
 <div class="stock_container">
     <form id="stock_form">
-        <label id="stock_label" for="symbol">Enter Stock Symbol:</label>
+        <label id="stock_label" for="stock_symbol">Enter Stock Symbol:</label>
         <input type="text" id="stock_symbol" name="symbol" required>
         <button id="stock_button" type="submit">Get Data</button>
     </form>
