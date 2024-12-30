@@ -86,9 +86,9 @@ title: Guidance
 
                 // Layout configuration
                 const layoutHist = {
-                    title: 'Sample Histogram',
+                    title: ' Gain Ratio Histogram',
                     xaxis: {
-                        title: 'Value',
+                        title: 'Gains Ratio',
                     },
                     yaxis: {
                         title: 'Frequency',
