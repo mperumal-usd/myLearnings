@@ -28,7 +28,6 @@ title: Guidance
 
             try {
                 const data = await getStockData(symbol);
-
                 const dates =  data.data.map(entry => entry.date);
                 const prices =  data.data.map(entry => entry.adjClose);
                 const result=calculateBuyAndSell(dates,prices,3,10)
@@ -47,7 +46,7 @@ title: Guidance
                     y: result.sellPrices.map(entry => entry.price),
                     type: 'scatter',
                     mode: 'markers',
-                    name: `${symbol} Selling Prices`
+                    name: `${symbol} Sell Signal`
                 };
 
                   const trace2 = {
@@ -55,7 +54,7 @@ title: Guidance
                     y: result.buyPrices.map(entry => entry.price),
                     type: 'scatter',
                     mode: 'markers',
-                    name: `${symbol} Buying Prices`
+                    name: `${symbol} Buy Signal`
                 };
 
                 const layout = {
