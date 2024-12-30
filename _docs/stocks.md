@@ -11,6 +11,10 @@ title: Guidance
     <form id="stock_form">
         <label id="stock_label" for="stock_symbol">Enter Stock Symbol:</label>
         <input type="text" id="stock_symbol" name="symbol" required>
+        <label id="stock_mva_label" for="stock_mva_symbol">MovingAverage</label>
+        <input type="text" id="stock_mva_symbol" name="symbol">
+          <label id="stock_window_label" for="stock_window_symbol">LookBack</label>
+        <input type="text" id="stock_window_symbol" name="symbol">
         <button id="stock_button" type="submit">Get Data</button>
     </form>
     <div id="stock_plot"></div>
@@ -26,12 +30,13 @@ title: Guidance
                 alert('Please enter a stock symbol.');
                 return;
             }
-
+         const mva = document.getElementById('stock_mva_symbol').value.trim();
+         const window = document.getElementById('stock_window_symbol').value.trim();
             try {
                 const data = await getStockData(symbol);
                 const dates =  data.data.map(entry => entry.date);
                 const prices =  data.data.map(entry => entry.adjClose);
-                const result= await calculateBuyAndSell(dates,prices,3,10)
+                const result= await calculateBuyAndSell(dates,prices,mva?mva:3,window?window:10)
 
                 // Plot data using Plotly
                 const trace = {
