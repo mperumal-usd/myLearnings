@@ -47,7 +47,7 @@ title: Guidance
                     name: `${symbol} Closing Prices`
                 };
 
-                  const trace1 = {
+                const trace1 = {
                     x: result.sellPrices.map(entry => entry.date),
                     y: result.sellPrices.map(entry => entry.price),
                     type: 'scatter',
@@ -55,7 +55,7 @@ title: Guidance
                     name: `${symbol} Sell Signal`
                 };
 
-                  const trace2 = {
+                const trace2 = {
                     x: result.buyPrices.map(entry => entry.date),
                     y: result.buyPrices.map(entry => entry.price),
                     type: 'scatter',
@@ -72,32 +72,33 @@ title: Guidance
                 Plotly.newPlot('stock_plot', [trace,trace1,trace2], layout);
 
                 const traceHist = {
-        x: result.ratio,  // data array
-        type: 'histogram',  // specify the type as histogram
-        marker: {
-            color: 'rgba(0,123,255,0.7)',  // Color of the bars
-            line: {
-                color: 'rgba(0,123,255,1)',  // Border color
-                width: 1  // Border width
-            }
-        },
-        nbinsx: 10,  // Number of bins in the histogram
-    };
+                    x: result.ratio,  // data array
+                    type: 'histogram',  // specify the type as histogram
+                    marker: {
+                        color: 'rgba(0,123,255,0.7)',  // Color of the bars
+                        line: {
+                            color: 'rgba(0,123,255,1)',  // Border color
+                            width: 1  // Border width
+                        }
+                    },
+                    nbinsx: 10,  // Number of bins in the histogram
+                };
 
-    // Layout configuration
-    const layoutHist = {
-        title: 'Sample Histogram',
-        xaxis: {
-            title: 'Value',
-        },
-        yaxis: {
-            title: 'Frequency',
-        },
-    };
+                // Layout configuration
+                const layoutHist = {
+                    title: 'Sample Histogram',
+                    xaxis: {
+                        title: 'Value',
+                    },
+                    yaxis: {
+                        title: 'Frequency',
+                    },
+                };
 
-    // Create the plot
-    Plotly.newPlot('stock_hist', [traceHist], layoutHist);
-            } catch (error) {
+                // Create the plot
+                Plotly.newPlot('stock_hist', [traceHist], layoutHist);
+
+             } catch (error) {
                 console.error('Error:', error);
                 alert('An error occurred while fetching or plotting data. Please try again.');
             }
