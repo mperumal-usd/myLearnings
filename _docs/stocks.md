@@ -64,7 +64,7 @@ title: Guidance
                     yaxis: { title: 'Price (USD)' }
                 };
 
-                Plotly.newPlot('stock_plot', [trace], layout);
+                Plotly.newPlot('stock_plot', [trace,trace1,trace2], layout);
             } catch (error) {
                 console.error('Error:', error);
                 alert('An error occurred while fetching or plotting data. Please try again.');
