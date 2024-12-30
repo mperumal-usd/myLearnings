@@ -71,7 +71,7 @@ title: Guidance
 
                 Plotly.newPlot('stock_plot', [trace,trace1,trace2], layout);
 
-                const trace = {
+                const traceHist = {
         x: result.ratio,  // data array
         type: 'histogram',  // specify the type as histogram
         marker: {
@@ -85,7 +85,7 @@ title: Guidance
     };
 
     // Layout configuration
-    const layout = {
+    const layoutHist = {
         title: 'Sample Histogram',
         xaxis: {
             title: 'Value',
@@ -96,7 +96,7 @@ title: Guidance
     };
 
     // Create the plot
-    Plotly.newPlot('stock_hist', [trace], layout);
+    Plotly.newPlot('stock_hist', [traceHist], layoutHist);
             } catch (error) {
                 console.error('Error:', error);
                 alert('An error occurred while fetching or plotting data. Please try again.');
