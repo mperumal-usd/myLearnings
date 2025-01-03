@@ -77,7 +77,7 @@ title: Guidance
                     y: bolingerResult.upperBand,
                     type: 'scatter',
                     mode: 'lines',
-                    name: `Upper`
+                    name: `Bollinger Upper`
                 };
 
                  const trace4 = {
@@ -85,14 +85,19 @@ title: Guidance
                     y: bolingerResult.lowerBand,
                     type: 'scatter',
                     mode: 'lines',
-                    name: `lower`
+                    name: `Bollinger lower`
                 };
 
 
                 const layout = {
                     title: `Daily Closing Prices for ${symbol}`,
                     xaxis: { title: 'Date' },
-                    yaxis: { title: 'Price (USD)' }
+                    yaxis: { title: 'Price (USD)' },
+                    legend: {
+                        orientation: 'h', // Horizontal orientation
+                        x: 0, // Align to the left
+                        y: -0.2, // Position below the plot
+                    }
                 };
 
                 Plotly.newPlot('stock_plot', [trace,trace1,trace2,trace3,trace4], layout);
