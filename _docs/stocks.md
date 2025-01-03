@@ -45,7 +45,7 @@ title: Guidance
                 const dates =  data.data.map(entry => entry.date);
                 const prices =  data.data.map(entry => entry.adjClose);
                 const result= await calculateBuyAndSell(dates,prices,mva?parseInt(mva, 10):3,window?parseInt(window, 10):10)
-                const bolingerResult=await bolingerBand(prices,dates,parseInt(window, 10))
+                const bolingerResult=await bolingerBand(prices,dates,mva?parseInt(mva, 10):3)
 
                 // Plot data using Plotly
                 const trace = {
