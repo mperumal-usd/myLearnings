@@ -45,6 +45,7 @@ title: Guidance
                 const dates =  data.data.map(entry => entry.date);
                 const prices =  data.data.map(entry => entry.adjClose);
                 const result= await calculateBuyAndSell(dates,prices,mva?parseInt(mva, 10):3,window?parseInt(window, 10):10)
+                const bolingerResult=await bolingerBand(prices,dates,parseInt(window, 10))
 
                 // Plot data using Plotly
                 const trace = {
@@ -71,13 +72,30 @@ title: Guidance
                     name: `${symbol} Buy Signal`
                 };
 
+                 const trace3 = {
+                    x: bolingerResult.trimmedDates,
+                    y: bolingerResult.upperBand,
+                    type: 'scatter',
+                    mode: 'lines',
+                    name: `Upper`
+                };
+
+                 const trace4 = {
+                    x: bolingerResult.trimmedDates,
+                    y: bolingerResult.lowerBand,
+                    type: 'scatter',
+                    mode: 'lines',
+                    name: `lower`
+                };
+
+
                 const layout = {
                     title: `Daily Closing Prices for ${symbol}`,
                     xaxis: { title: 'Date' },
                     yaxis: { title: 'Price (USD)' }
                 };
 
-                Plotly.newPlot('stock_plot', [trace,trace1,trace2], layout);
+                Plotly.newPlot('stock_plot', [trace,trace1,trace2,trace3,trace4], layout);
 
                 const traceHist = {
                     x: result.ratio,  // data array

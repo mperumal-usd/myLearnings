@@ -162,3 +162,24 @@ async function calculateBuyAndSell(dates,prices, mva, lookBack) {
             return {'sellPrices':sellPrices,'buyPrices':buyPrices,"ratio":shiftRatio,"stats":result}
 }
 
+
+async function bolingerBand(closePrices,dates,period) {
+    const middleBand = [];
+    const upperBand = [];
+    const lowerBand = [];
+    for (let i = period - 1; i < closePrices.length; i++) {
+      const window = closePrices.slice(i - period + 1, i + 1);
+      const mean = window.reduce((a, b) => a + b, 0) / period;
+      const stdDev = Math.sqrt(window.reduce((sum, price) => sum + (price - mean) ** 2, 0) / period);
+
+      middleBand.push(mean);
+      upperBand.push(mean + 2 * stdDev);
+      lowerBand.push(mean - 2 * stdDev);
+    }
+
+    // Trim dates to match Bollinger Bands length
+    const trimmedDates = dates.slice(period - 1);
+
+    return {"middleBand":middleBand,"upperBand":upperBand,"lowerBand":lowerBand,"trimmedDates":trimmedDates}
+}
+

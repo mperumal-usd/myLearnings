@@ -5,6 +5,25 @@ async function speak(){
   speakApi(text,audioPlayer)
 }
 
+function playAudio(file) {
+  return new Promise((resolve, reject) => {
+    const audio = new Audio(file);
+    audio.play()
+      .then(() => {
+        console.log(`Playing: ${file}`);
+      })
+      .catch((error) => {
+        console.error(`Error playing ${file}:`, error);
+        reject(error); // Stop the sequence on failure
+      });
+
+    // Resolve the promise when the audio ends
+    audio.addEventListener('ended', () => {
+      console.log(`Finished: ${file}`);
+      resolve();
+    });
+  });
+
 async function speakApi(text,audioPlayerElement) {
   try {
     // Replace with your API URL that returns audio/mpeg
