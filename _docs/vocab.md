@@ -15,6 +15,9 @@ title: vocab
 </div>
 
 <div class="result" id="result"></div>
+<p id="similarity"></p>
 
+<script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs"></script>
+<script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/universal-sentence-encoder"></script>
 
 <script src="{{ site.baseurl }}/scripts/dictation.js"></script>

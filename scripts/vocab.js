@@ -32,28 +32,42 @@ function getRandomNumber(min, max) {
 let currentQuestion = null;
 async function generateQuestion() {
     let dictionary = await getQuestions()
-    const tamilWords = Object.keys(dictionary);
+    const myDictionary = Object.keys(dictionary);
     const segmenter = new Intl.Segmenter("ta", { granularity: "grapheme" });
-    const randomTamilWord = tamilWords[Math.floor(Math.random() * tamilWords.length)];
-    const englishMeaning = dictionary[randomTamilWord];
+    const randomWord = myDictionary[Math.floor(Math.random() * myDictionary.length)];
+    const meaningOfTheWord = dictionary[randomWord];
     // Randomly decide the question type
     const questionType = Math.random() < 0.5 ? 1 : 2;
 
     if (questionType === 1) {
         // Ask for Tamil word from English
         currentQuestion = {
-            question: `What is the word(s) meaning "${englishMeaning}"?`,
-            answer: randomTamilWord
+            question: `What is the word(s) meaning "${meaningOfTheWord}"?`,
+            answer: randomWord
         };
+        if ('speechSynthesis' in window) {
+            const utterance = new SpeechSynthesisUtterance(meaningOfTheWord);
+            utterance.lang = 'en-US';
+            window.speechSynthesis.speak(utterance);
+        } else {
+            alert('Sorry, your browser does not support text-to-speech.');
+        }
 
     } else {
         // Ask for the English meaning of jumbled Tamil word
         currentQuestion = {
-            question: `What is the meaning of the word(s) "${randomTamilWord}"?`,
-            answer: englishMeaning
+            question: `What is the meaning of the word(s) "${randomWord}"?`,
+            answer: meaningOfTheWord
         };
         const letterBox = document.getElementById("letterBox");
         letterBox.innerHTML = "";
+        if ('speechSynthesis' in window) {
+            const utterance = new SpeechSynthesisUtterance(randomWord);
+            utterance.lang = 'en-US';
+            window.speechSynthesis.speak(utterance);
+        } else {
+            alert('Sorry, your browser does not support text-to-speech.');
+        }
     }
 
     // Tamil letters to display as buttons
@@ -64,7 +78,7 @@ async function generateQuestion() {
 }
 
 // Check the user's answer
-function checkAnswer() {
+async function checkAnswer() {
     const userAnswer = document.getElementById('textInput').value.trim();
     const resultElement = document.getElementById('result');
     const noSpaces = currentQuestion.answer.replace(/\s+/g, "");
@@ -75,4 +89,38 @@ function checkAnswer() {
         resultElement.innerText = `Incorrect. The correct answer is "${currentQuestion.answer}".`;
         resultElement.style.color = 'red';
     }
+    await computeSimilarity(userAnswer, currentQuestion.answer);
+}
+
+async function computeSimilarity(sentence1, sentence2) {
+
+    if (!sentence1 || !sentence2) {
+        alert("Please enter both sentences.");
+        return;
+    }
+
+    // Load the Universal Sentence Encoder model
+    const model = await use.load();
+
+    // Compute embeddings for the sentences
+    const embeddings = await model.embed([sentence1, sentence2]);
+
+    // Convert embeddings to arrays
+    const embeddingsArray = await embeddings.array();
+
+    // Calculate cosine similarity
+    const similarity = cosineSimilarity(embeddingsArray[0], embeddingsArray[1]);
+
+    // Display the result
+    document.getElementById('similarity').innerText = `Cosine Similarity: ${similarity.toFixed(4)}`;
+
+    // Dispose of the embeddings tensor to free up memory
+    embeddings.dispose();
+}
+
+function cosineSimilarity(vecA, vecB) {
+    const dotProduct = vecA.reduce((sum, a, i) => sum + a * vecB[i], 0);
+    const magnitudeA = Math.sqrt(vecA.reduce((sum, val) => sum + val * val, 0));
+    const magnitudeB = Math.sqrt(vecB.reduce((sum, val) => sum + val * val, 0));
+    return dotProduct / (magnitudeA * magnitudeB);
 }
