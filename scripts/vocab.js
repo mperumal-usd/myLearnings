@@ -46,9 +46,7 @@ async function generateQuestion() {
             answer: randomWord
         };
         if ('speechSynthesis' in window) {
-            const utterance = new SpeechSynthesisUtterance(meaningOfTheWord);
-            utterance.lang = 'en-US';
-            window.speechSynthesis.speak(utterance);
+          speak(meaningOfTheWord);
         } else {
             alert('Sorry, your browser does not support text-to-speech.');
         }
@@ -62,9 +60,7 @@ async function generateQuestion() {
         const letterBox = document.getElementById("letterBox");
         letterBox.innerHTML = "";
         if ('speechSynthesis' in window) {
-            const utterance = new SpeechSynthesisUtterance(randomWord);
-            utterance.lang = 'en-US';
-            window.speechSynthesis.speak(utterance);
+            speak(randomWord);
         } else {
             alert('Sorry, your browser does not support text-to-speech.');
         }
@@ -124,3 +120,25 @@ function cosineSimilarity(vecA, vecB) {
     const magnitudeB = Math.sqrt(vecB.reduce((sum, val) => sum + val * val, 0));
     return dotProduct / (magnitudeA * magnitudeB);
 }
+
+function speak(text) {
+    const utterance = new SpeechSynthesisUtterance(text);
+    // Set the voice to an English male voice
+    const voices = window.speechSynthesis.getVoices();
+    const englishMaleVoice = voices.find(voice => 
+        voice.lang.startsWith('en') && voice.name.toLowerCase().includes('male')
+    );
+
+    if (englishMaleVoice) {
+        utterance.voice = englishMaleVoice;
+    } else {
+        console.log('Male English voice not found, using default voice.');
+    }
+
+    window.speechSynthesis.speak(utterance);
+}
+
+// Ensure voices are loaded before finding the desired one
+window.speechSynthesis.onvoiceschanged = () => {
+    console.log('Voices updated');
+};
