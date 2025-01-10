@@ -20,4 +20,4 @@ title: vocab
 <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs"></script>
 <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/universal-sentence-encoder"></script>
 
-<script src="{{ site.baseurl }}/scripts/dictation.js"></script>
+<script src="{{ site.baseurl }}/scripts/vocab.js"></script>
